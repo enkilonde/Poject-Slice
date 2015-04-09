@@ -24,7 +24,7 @@ public class EnergyManager : MonoBehaviour {
 	{
 		_Energy = _MaxEnnergy;
 		_UI = transform.parent.Find ("Canvas").Find ("TextEnergy").GetComponent<Text> ();
-
+		
 	}
 	
 	// Update is called once per frame
@@ -32,7 +32,7 @@ public class EnergyManager : MonoBehaviour {
 	{
 
 		_UI.text = "Current Ennergy : " + (int)_Energy + "\nNombres de barres : " + _NombreBarreDispo;
-
+		transform.parent.Find ("Canvas").Find ("Slider").GetComponent<Slider> ().value = _Energy;
 		
 		_RegenRate = (Time.deltaTime * _EnergyParBarre) / _SecondToGainABarre ;
 
