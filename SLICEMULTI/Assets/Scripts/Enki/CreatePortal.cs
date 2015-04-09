@@ -17,11 +17,12 @@ public class CreatePortal : MonoBehaviour {
 
 	private bool _portalPossible = false;
 
+	private EnergyManager _EnergyManager;
 
 	// Use this for initialization
 	void Start () {
 	
-
+		_EnergyManager = transform.Find ("Scripts").GetComponent<EnergyManager> ();
 
 
 	}
@@ -51,11 +52,12 @@ public class CreatePortal : MonoBehaviour {
 		}
 
 
-		if (Input.GetMouseButtonUp (0) && _portalPossible) 
+		if (Input.GetMouseButtonUp (0) && _portalPossible && _EnergyManager._NombreBarreDispo >=1) 
 		{
 			LaunchPortal(_Charge);
 			_Charge = 1;
 
+			_EnergyManager._NombreBarreDispo--;
 		}
 
 
