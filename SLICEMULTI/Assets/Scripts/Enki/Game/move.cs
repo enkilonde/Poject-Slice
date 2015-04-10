@@ -15,7 +15,7 @@ public class move : MonoBehaviour {
 
 	void Awake()
 	{
-		_LManager = GameObject.Find ("Scripts").GetComponent<LocalManager> ();
+		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
 	}
 
 

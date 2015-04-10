@@ -9,13 +9,23 @@ public class LocalManager : MonoBehaviour
 	public float _MasterVolume = 5;
 	public float _Sensibility = 50;
 
+	public int _ResolutionHeight = 1280;
+	public int _ResolutionLenght = 1080;
 
 	public GameObject _PauseUI;
 
+
+	void Awake()
+	{
+
+
+
+	}
 	// Use this for initialization
 	void Start () 
 	{
 		Cursor.visible = false;
+
 	}
 	
 	// Update is called once per frame
