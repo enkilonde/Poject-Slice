@@ -8,6 +8,8 @@ public class PortalLayer : MonoBehaviour {
 	public GameObject _camera;
 	private GameObject _LocalPlayer;
 
+	private Transform _PlayerMainCamera;
+
 	public LayerMask _LM;
 
 	public float _FOVLimite = 60;
@@ -16,6 +18,7 @@ public class PortalLayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		//GetComponent<PhotonView> ().RPC ("InstantiateCamera", PhotonTargets.All);
 
 		_manager = GameObject.Find ("Scripts").GetComponent<PortalLayerManager> ();
@@ -44,7 +47,11 @@ public class PortalLayer : MonoBehaviour {
 
 			GetComponent<ignoreCollision>().restoreLayer(_Layer);
 			//this.gameObject.layer = _Layer;
-			//MoveToLayer(transform, _Layer);
+			MoveToLayer(transform, _Layer);
+			gameObject.layer = 10;
+
+			_PlayerMainCamera = _camera.transform.parent.Find("Camera");
+
 		}
 
 	}
@@ -52,6 +59,17 @@ public class PortalLayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+
+		/*
+		float _Hypotenus = Vector3.Distance (_PlayerMainCamera.position, transform.position) / Mathf.Cos(Quaternion.Angle(_camera.transform.rotation, _PlayerMainCamera.rotation) * Mathf.Deg2Rad);
+		print (_Hypotenus);
+
+		Vector3 _PlanePos = _PlayerMainCamera.position + ((_PlayerMainCamera.GetChild(0).position - _PlayerMainCamera.position) * _Hypotenus);
+
+
+
+		transform.Find ("Target").position = transform.position + ((_PlanePos - transform.position).normalized * 0.1f);
+*/
 		if (transform.Find ("Target")) 
 		{
 
@@ -60,6 +78,9 @@ public class PortalLayer : MonoBehaviour {
 		}
 
 		_camera.GetComponent<Camera> ().fieldOfView = GetFOV (_camera.transform.position, transform.Find ("PortalExtremity").position, transform.Find ("PortalExtremity2").position);
+
+
+
 
 
 

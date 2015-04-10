@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class CreatePortal : MonoBehaviour {
 
@@ -100,19 +101,23 @@ public class CreatePortal : MonoBehaviour {
 			}
 			else if (_hit.transform.tag == "Portal")
 			{
-				/*RaycastHit _hit2;
-				Vector3 _addedVector = _hit.point - transform.position;
-				if(Physics.Raycast(_hit.point + (_addedVector.normalized), _hit.point + _hit.point - transform.position  , out _hit2, _layer.value))
+
+				RaycastHit _hit2;
+				LayerMask _layer2 = LayerMask.GetMask ("Ground", "Ignored 1", "Ignored 2", "Ignored 3", "Ignored 4", "Ignored 5", "Ignored 6", "Ignored 7", "Ignored 8", "Ignored 9", "Ignored 10");
+				_layer2 ^= (1 << _hit.transform.GetChild(0).gameObject.layer);
+				if (Physics.Raycast(transform.Find ("Camera").position, transform.Find("Camera").Find("Viseur").position - transform.Find ("Camera").position, out _hit2, Mathf.Infinity, _layer2.value))
 				{
+					print (_hit2.transform.name);
 					if (_hit2.transform.tag == "Ground" || _hit2.transform.tag == "Portaillable" || _hit2.transform.tag == "SautEtPortaillable")
 					{
 						_PortalPos = _hit2.point;
 						_PortalRot = _hit2.transform.rotation;
 						_portalPossible = true;
+						print(_hit2.transform.gameObject.layer + "      " + _hit.transform.GetChild(0).gameObject.layer);
 					}
+
 				}
 
-				*/
 			}
 		}
 	}
