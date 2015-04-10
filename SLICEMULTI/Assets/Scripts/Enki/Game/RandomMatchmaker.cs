@@ -7,7 +7,7 @@ public class RandomMatchmaker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PhotonNetwork.ConnectUsingSettings("0.6");
+		PhotonNetwork.ConnectUsingSettings("0.7");
 
 	}
 	

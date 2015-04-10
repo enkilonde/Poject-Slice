@@ -90,7 +90,6 @@ public class CreatePortal : MonoBehaviour {
 
 		RaycastHit _hit;
 		LayerMask _layer = LayerMask.GetMask ("Ground", "Portal", "Ignored 1", "Ignored 2", "Ignored 3", "Ignored 4", "Ignored 5", "Ignored 6", "Ignored 7", "Ignored 8", "Ignored 9", "Ignored 10");
-		Ray _Ray = new Ray (transform.Find ("Camera").position, transform.Find ("Camera").Find ("Viseur").position - transform.Find ("Camera").position);
 		if (Physics.Raycast(transform.Find ("Camera").position, transform.Find("Camera").Find("Viseur").position - transform.Find ("Camera").position, out _hit, Mathf.Infinity, _layer.value))
 		{
 			if (_hit.transform.tag == "Ground" || _hit.transform.tag == "Portaillable" || _hit.transform.tag == "SautEtPortaillable")

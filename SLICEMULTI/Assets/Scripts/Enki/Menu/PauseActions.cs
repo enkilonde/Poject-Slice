@@ -14,9 +14,9 @@ public class PauseActions : MonoBehaviour
 	private GameObject _MainPauseContainer;
 	private GameObject _OptionsContainer;
 
-	private List<string> _Resolutions1 = new List<string>();
-	private List<string> _Resolutions2 = new List<string>();
 
+
+	private int _ResolutionIndex = 0;
 
 	void Awake()
 	{
@@ -31,8 +31,6 @@ public class PauseActions : MonoBehaviour
 	void Start () 
 	{
 
-		_Resolutions1.Add ("1920");
-		_Resolutions1.Add ("1080");
 
 
 	}
@@ -52,13 +50,22 @@ public class PauseActions : MonoBehaviour
 			_LManager._Sensibility = _OptionsContainer.transform.Find ("SensibilitySlider").GetComponent<Slider> ().value / 100;
 			_OptionsContainer.transform.Find("Sensibility").Find("Text").GetComponent<Text>().text = "Sensibilité : " + _LManager._Sensibility * 100 + "%";
 
-			_OptionsContainer.transform.Find("Resolution").Find("Text").GetComponent<Text>().text = "Resolution : " + Screen.resolutions;
-			print("Resolution : " + Screen.resolutions);
+			_OptionsContainer.transform.Find("Resolution").Find("Text").GetComponent<Text>().text = "Resolution : " + _LManager._resolutions[_ResolutionIndex].width + "x" + _LManager._resolutions[_ResolutionIndex].height;
+			//print("Resolution : " + _LManager._resolutions[_LManager._ResolutionIndex] + "x" + _LManager._resolutions[_LManager._ResolutionIndex]);
 
 
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				_Options = false;
+			}
+
+			if(_ResolutionIndex == _LManager._ResolutionIndex)
+			{
+				_OptionsContainer.transform.Find("ApplyResolution").gameObject.SetActive(false);
+			}
+			else
+			{
+				_OptionsContainer.transform.Find("ApplyResolution").gameObject.SetActive(true);
 			}
 
 
@@ -84,6 +91,7 @@ public class PauseActions : MonoBehaviour
 	{
 		_OptionsContainer.transform.Find ("VolumeSlider").GetComponent<Slider> ().value = _LManager._MasterVolume;
 		_OptionsContainer.transform.Find ("SensibilitySlider").GetComponent<Slider> ().value = _LManager._Sensibility * 100;
+		_ResolutionIndex = _LManager._ResolutionIndex;
 		_Options = true;
 
 	}
@@ -94,9 +102,22 @@ public class PauseActions : MonoBehaviour
 	}
 
 
+	public void ChangeResolution()
+	{
 
+		_ResolutionIndex++;
+		if (_ResolutionIndex >= _LManager._resolutions.Length) 
+		{
+			_ResolutionIndex = 0;
+		}
+	}
 
+	public void ApplyResolution()
+	{
 
+		_LManager.UpdateResolution (_ResolutionIndex);
+
+	}
 
 
 
