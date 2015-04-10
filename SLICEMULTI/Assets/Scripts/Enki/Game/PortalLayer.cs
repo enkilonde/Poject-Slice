@@ -60,7 +60,7 @@ public class PortalLayer : MonoBehaviour {
 	void Update () 
 	{
 
-		/*
+
 		float _Hypotenus = Vector3.Distance (_PlayerMainCamera.position, transform.position) / Mathf.Cos(Quaternion.Angle(_camera.transform.rotation, _PlayerMainCamera.rotation) * Mathf.Deg2Rad);
 		print (_Hypotenus);
 
@@ -68,8 +68,8 @@ public class PortalLayer : MonoBehaviour {
 
 
 
-		transform.Find ("Target").position = transform.position + ((_PlanePos - transform.position).normalized * 0.1f);
-*/
+		transform.Find ("Target").position = transform.position + ((_PlanePos - transform.position) / 10);
+
 		if (transform.Find ("Target")) 
 		{
 
