@@ -18,12 +18,19 @@ public class PauseActions : MonoBehaviour
 
 	private int _ResolutionIndex = 0;
 
+
+	private GameObject _ResolutionList;
+	private Resolution[] _Resolutions;
+
+
 	void Awake()
 	{
-
+		_Resolutions = Screen.resolutions;
 		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
 		_MainPauseContainer = transform.parent.Find ("Main").gameObject;
 		_OptionsContainer = transform.parent.Find("Options").gameObject;
+		_ResolutionList = transform.parent.Find ("Options").Find ("Deroulant").Find ("Resolutions").gameObject;
+
 
 	}
 
@@ -116,6 +123,23 @@ public class PauseActions : MonoBehaviour
 	{
 
 		_LManager.UpdateResolution (_ResolutionIndex);
+
+	}
+
+
+	public void DeroulerResolutions(GameObject _Prefab)
+	{
+
+
+		for (int i = 0; i < _Resolutions.Length ; i++)
+		{
+
+
+
+		}
+
+
+		_ResolutionList.SetActive (!_ResolutionList.activeSelf);
 
 	}
 
