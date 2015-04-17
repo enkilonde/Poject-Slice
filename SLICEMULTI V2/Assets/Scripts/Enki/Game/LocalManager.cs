@@ -17,8 +17,8 @@ public class LocalManager : MonoBehaviour
 	public Resolution[] _resolutions;
 	public int _ResolutionIndex = 0;
 
-	public int _PortalNumber = 0;
-
+	public List<GameObject> _PortalsContainer = new List<GameObject>();
+	public float _MaxPortals = 3;
 
 
 	void Awake()
@@ -87,13 +87,24 @@ public class LocalManager : MonoBehaviour
 
 		_PauseUI.SetActive (_IsPaused);
 		Cursor.visible = _IsPaused;
-		
+
+
+		if (_PortalsContainer.Count > _MaxPortals) 
+		{
+
+			_PortalsContainer[0].GetComponent<PortalDegradation>().DestroyPortal();
+
+		}
+
+
+
 	}
 
 
 	public void UpdateResolution(int _index)
 	{
 		_ResolutionIndex = _index;
+		print (_index);
 		Screen.SetResolution(_resolutions[_ResolutionIndex].width, _resolutions[_ResolutionIndex].height, true);
 
 	}

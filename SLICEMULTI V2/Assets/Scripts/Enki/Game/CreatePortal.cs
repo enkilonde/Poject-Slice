@@ -80,7 +80,7 @@ public class CreatePortal : MonoBehaviour {
 	{
 		GameObject _portal = PhotonNetwork.Instantiate("Portal", _PortalPos, _PortalRot, 0) as GameObject;
 		_portal.GetComponent<PortalDegradation> ()._Size = _Size * _PortalSize;
-
+		_LManager._PortalsContainer.Add (_portal);
 	}
 
 

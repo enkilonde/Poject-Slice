@@ -21,6 +21,7 @@ public class PauseActions : MonoBehaviour
 
 	private GameObject _ResolutionList;
 	private Resolution[] _Resolutions;
+	public GameObject _PrefabResolution;
 
 
 	void Awake()
@@ -30,7 +31,7 @@ public class PauseActions : MonoBehaviour
 		_MainPauseContainer = transform.parent.Find ("Main").gameObject;
 		_OptionsContainer = transform.parent.Find("Options").gameObject;
 		_ResolutionList = transform.parent.Find ("Options").Find ("Deroulant").Find ("Resolutions").gameObject;
-
+		_ResolutionList.SetActive (false);
 
 	}
 
@@ -38,6 +39,14 @@ public class PauseActions : MonoBehaviour
 	void Start () 
 	{
 
+		for (int i = 0; i < _Resolutions.Length ; i++)
+		{
+			GameObject _Reso = Instantiate(_PrefabResolution, _ResolutionList.transform.position - new Vector3(0, i*28, 0), Quaternion.identity) as GameObject;
+			_Reso.transform.parent = _ResolutionList.transform;
+			_Reso.transform.Find("Text").GetComponent<Text>().text = _Resolutions[i].width + "x" + _Resolutions[i].height;
+			_Reso.GetComponent<ResolutionIndex>()._ResolutionIndex = i;
+			_Reso.GetComponent<Button>().onClick.AddListener(delegate { ChangeResolution(i-1); });
+		}
 
 
 	}
@@ -57,7 +66,7 @@ public class PauseActions : MonoBehaviour
 			_LManager._Sensibility = _OptionsContainer.transform.Find ("SensibilitySlider").GetComponent<Slider> ().value / 100;
 			_OptionsContainer.transform.Find("Sensibility").Find("Text").GetComponent<Text>().text = "Sensibilité : " + _LManager._Sensibility * 100 + "%";
 
-			_OptionsContainer.transform.Find("Resolution").Find("Text").GetComponent<Text>().text = "Resolution : " + _LManager._resolutions[_ResolutionIndex].width + "x" + _LManager._resolutions[_ResolutionIndex].height;
+			//_OptionsContainer.transform.Find("Resolution").Find("Text").GetComponent<Text>().text = "Resolution : " + _LManager._resolutions[_ResolutionIndex].width + "x" + _LManager._resolutions[_ResolutionIndex].height;
 			//print("Resolution : " + _LManager._resolutions[_LManager._ResolutionIndex] + "x" + _LManager._resolutions[_LManager._ResolutionIndex]);
 
 
@@ -109,14 +118,11 @@ public class PauseActions : MonoBehaviour
 	}
 
 
-	public void ChangeResolution()
+	public void ChangeResolution(int _ResoIndex)
 	{
-
-		_ResolutionIndex++;
-		if (_ResolutionIndex >= _LManager._resolutions.Length) 
-		{
-			_ResolutionIndex = 0;
-		}
+		print ("Index = " + _ResoIndex);
+		_ResolutionIndex = _ResoIndex;
+		_ResolutionList.SetActive (false);
 	}
 
 	public void ApplyResolution()
@@ -127,17 +133,8 @@ public class PauseActions : MonoBehaviour
 	}
 
 
-	public void DeroulerResolutions(GameObject _Prefab)
+	public void DeroulerResolutions()
 	{
-
-
-		for (int i = 0; i < _Resolutions.Length ; i++)
-		{
-
-
-
-		}
-
 
 		_ResolutionList.SetActive (!_ResolutionList.activeSelf);
 
