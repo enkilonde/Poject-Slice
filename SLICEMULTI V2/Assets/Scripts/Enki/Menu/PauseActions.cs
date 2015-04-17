@@ -45,7 +45,7 @@ public class PauseActions : MonoBehaviour
 			_Reso.transform.parent = _ResolutionList.transform;
 			_Reso.transform.Find("Text").GetComponent<Text>().text = _Resolutions[i].width + "x" + _Resolutions[i].height;
 			_Reso.GetComponent<ResolutionIndex>()._ResolutionIndex = i;
-			_Reso.GetComponent<Button>().onClick.AddListener(delegate { ChangeResolution(i-1); });
+			_Reso.GetComponent<Button>().onClick.AddListener(delegate { ChangeResolution(_Reso); });
 		}
 
 
@@ -118,10 +118,9 @@ public class PauseActions : MonoBehaviour
 	}
 
 
-	public void ChangeResolution(int _ResoIndex)
+	public void ChangeResolution(GameObject _ResoIndex)
 	{
-		print ("Index = " + _ResoIndex);
-		_ResolutionIndex = _ResoIndex;
+		_ResolutionIndex = _ResoIndex.GetComponent<ResolutionIndex> ()._ResolutionIndex;;
 		_ResolutionList.SetActive (false);
 	}
 
