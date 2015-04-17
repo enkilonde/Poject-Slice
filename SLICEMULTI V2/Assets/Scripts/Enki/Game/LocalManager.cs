@@ -20,6 +20,7 @@ public class LocalManager : MonoBehaviour
 	public List<GameObject> _PortalsContainer = new List<GameObject>();
 	public float _MaxPortals = 3;
 
+	public bool _Fullscreen = true;
 
 	void Awake()
 	{
@@ -104,8 +105,7 @@ public class LocalManager : MonoBehaviour
 	public void UpdateResolution(int _index)
 	{
 		_ResolutionIndex = _index;
-		print (_index);
-		Screen.SetResolution(_resolutions[_ResolutionIndex].width, _resolutions[_ResolutionIndex].height, true);
+		Screen.SetResolution(_resolutions[_ResolutionIndex].width, _resolutions[_ResolutionIndex].height, _Fullscreen);
 
 	}
 

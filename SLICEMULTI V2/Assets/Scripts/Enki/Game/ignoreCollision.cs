@@ -12,6 +12,10 @@ public class ignoreCollision : MonoBehaviour
 
 	private PhotonView MyPhotonView;
 
+
+	public bool _WallActivated = false;
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -29,11 +33,24 @@ public class ignoreCollision : MonoBehaviour
 			}
 		}
 
-	
+	}
 
+
+
+	void Update()
+	{
+
+		if (_WallActivated) 
+		{
+			SetWallQueue (2020);
+		} else 
+		{
+			//SetWallQueue (2000);
+		}
 
 
 	}
+
 
 
 	public void restoreLayer(int _lay)

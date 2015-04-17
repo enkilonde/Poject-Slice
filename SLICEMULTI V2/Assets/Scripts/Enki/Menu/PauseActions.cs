@@ -23,6 +23,7 @@ public class PauseActions : MonoBehaviour
 	private Resolution[] _Resolutions;
 	public GameObject _PrefabResolution;
 
+	private string _FSText = "FullScreen";
 
 	void Awake()
 	{
@@ -66,9 +67,9 @@ public class PauseActions : MonoBehaviour
 			_LManager._Sensibility = _OptionsContainer.transform.Find ("SensibilitySlider").GetComponent<Slider> ().value / 100;
 			_OptionsContainer.transform.Find("Sensibility").Find("Text").GetComponent<Text>().text = "Sensibilité : " + _LManager._Sensibility * 100 + "%";
 
-			//_OptionsContainer.transform.Find("Resolution").Find("Text").GetComponent<Text>().text = "Resolution : " + _LManager._resolutions[_ResolutionIndex].width + "x" + _LManager._resolutions[_ResolutionIndex].height;
-			//print("Resolution : " + _LManager._resolutions[_LManager._ResolutionIndex] + "x" + _LManager._resolutions[_LManager._ResolutionIndex]);
+			_ResolutionList.transform.parent.Find("Button").Find("Text").GetComponent<Text>().text = _Resolutions[_ResolutionIndex].width + "x" + _Resolutions[_ResolutionIndex].height;
 
+			_OptionsContainer.transform.Find("FullScreen").Find("Text").GetComponent<Text>().text = _FSText;
 
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
@@ -137,6 +138,21 @@ public class PauseActions : MonoBehaviour
 
 		_ResolutionList.SetActive (!_ResolutionList.activeSelf);
 
+	}
+
+	public void SetFullScreen()
+	{
+		_LManager._Fullscreen = !_LManager._Fullscreen;
+
+		if (_LManager._Fullscreen) 
+		{
+			_FSText = "Fullscreen";
+		} else 
+		{
+			_FSText = "Windowed";
+		}
+
+		_LManager.UpdateResolution (_ResolutionIndex);
 	}
 
 
