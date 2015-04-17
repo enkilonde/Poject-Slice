@@ -93,11 +93,15 @@ public class PortalLayerManager : MonoBehaviour {
 
 	public bool CheckIfOtherPortalBool(Vector3 pos)
 	{
+
 		foreach (Portal _po in _Portals) 
 		{
 			if (((_po._PortalGObject.transform.position.x <= pos.x + _margeD_erreur) && (_po._PortalGObject.transform.position.x >= pos.x - _margeD_erreur)) || ((_po._PortalGObject.transform.position.y <= pos.y + _margeD_erreur) && (_po._PortalGObject.transform.position.y >= pos.y - _margeD_erreur)) || ((_po._PortalGObject.transform.position.z <= pos.z + _margeD_erreur) && (_po._PortalGObject.transform.position.z >= pos.z - _margeD_erreur)))
 			{
-				return true;
+				if (_po._PortalGObject.transform.position != pos)
+				{
+					return true;
+				}
 			}
 		}
 		return false;

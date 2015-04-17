@@ -14,11 +14,15 @@ public class ignoreCollision : MonoBehaviour
 
 
 	public bool _WallActivated = false;
+	public int _CheckNumberPortal = 0;
 
+	private OnlineManager _OnlineManager;
 
 	// Use this for initialization
 	void Start () 
 	{
+
+		_OnlineManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
 
 		Collider[] colli = Physics.OverlapSphere (transform.position, 0.1f);
 		_layer = GetComponent<PortalLayer> ()._Layer + 10;
@@ -37,7 +41,7 @@ public class ignoreCollision : MonoBehaviour
 
 
 
-	void Update()
+	void LateUpdate()
 	{
 
 		if (_WallActivated) 
@@ -45,7 +49,7 @@ public class ignoreCollision : MonoBehaviour
 			SetWallQueue (2020);
 		} else 
 		{
-			//SetWallQueue (2000);
+			SetWallQueue (2000);
 		}
 
 
@@ -101,17 +105,28 @@ public class ignoreCollision : MonoBehaviour
 		}
 
 
-	void OnTriggerExit(Collider _coll){
-		
-		if (_coll.tag == "Player") {
+	void OnTriggerExit(Collider _coll)
+	{
 
+		if (_coll.tag == "Player") 
+		{
+			print("collsionExit");
 				
-				for (int i = 0; i< twoWalls.Count; i++){
+			for (int i = 0; i< twoWalls.Count; i++)
+			{
 					
 					Physics.IgnoreCollision(_coll.GetComponent<Collider>(), twoWalls[i].GetComponent<Collider>(), false);
 				//_coll.transform.Find("FootCollider").GetComponent<Jump>()._InWall = false;
 					
-				}
+			
+
+			}
+
+			if (_coll.transform.position.y < transform.position.y - 1)
+			{
+				_OnlineManager.Fall(_coll.transform.GetComponent<PhotonView>().ownerId, GetComponent<PortalIdentifier>()._PlayerID);
+				
+			}
 
 		}
 		

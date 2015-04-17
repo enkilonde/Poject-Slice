@@ -22,7 +22,7 @@ public class CreatePortal : MonoBehaviour {
 
 	private LocalManager _LManager;
 
-
+	private int _PLayerID;
 
 	void Awake()
 	{
@@ -33,7 +33,7 @@ public class CreatePortal : MonoBehaviour {
 	void Start () {
 	
 		_EnergyManager = transform.Find ("Scripts").GetComponent<EnergyManager> ();
-
+		_PLayerID = GetComponent<PhotonView> ().ownerId;
 
 	}
 
@@ -81,6 +81,8 @@ public class CreatePortal : MonoBehaviour {
 		GameObject _portal = PhotonNetwork.Instantiate("Portal", _PortalPos, _PortalRot, 0) as GameObject;
 		_portal.GetComponent<PortalDegradation> ()._Size = _Size * _PortalSize;
 		_LManager._PortalsContainer.Add (_portal);
+		_portal.GetComponent<PortalIdentifier> ()._PlayerID = _PLayerID;
+		print (_PLayerID);
 	}
 
 

@@ -67,8 +67,9 @@ public class PortalDegradation : MonoBehaviour {
 
 		if (!GameObject.Find("Scripts").GetComponent<PortalLayerManager>().CheckIfOtherPortalBool(transform.position))
 		{
-			GetComponent<ignoreCollision>().restoreLayer(8);
 			GetComponent<ignoreCollision>().SetWallQueue(2000);
+			GetComponent<ignoreCollision>().restoreLayer(8);
+
 		}
 		Destroy(GetComponent<PortalLayer>()._camera);
 		if (_PhotonView.isMine)

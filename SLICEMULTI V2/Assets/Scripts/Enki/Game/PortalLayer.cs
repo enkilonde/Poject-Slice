@@ -47,25 +47,33 @@ public class PortalLayer : MonoBehaviour {
 	{
 
 		RaycastHit _hit;
-		GetComponent<ignoreCollision> ()._WallActivated = false;
+
 		if (Vector3.Distance (_LocalPlayer.transform.Find ("Camera").position, transform.position) > 1) 
 		{
 			if (Physics.Raycast (_LocalPlayer.transform.Find ("Camera").position, transform.position - _LocalPlayer.transform.Find ("Camera").position, out _hit)) {
-				if (_hit.transform.gameObject == this.gameObject) {
+				if (_hit.transform.gameObject == this.gameObject) 
+				{
 					//GetComponent<ignoreCollision> ().SetWallQueue (2020);
 					GetComponent<ignoreCollision> ()._WallActivated = true;
-				} else {
-					//GetComponent<ignoreCollision> ().SetWallQueue (2000);
+				} else 
+				{
+					if (!_manager.CheckIfOtherPortalBool(transform.position))
+					{
+						GetComponent<ignoreCollision> ()._WallActivated = false;
+						//print("ttt");
+					}
 				}
 			}
 		} else 
 		{
-			GetComponent<ignoreCollision> ().SetWallQueue (2020);
+			//GetComponent<ignoreCollision> ().SetWallQueue (2020);
 		}
 	}
 
 
-
+	void LateUpdate()
+	{
+	}
 
 
 	void MoveToLayer(Transform root, int layer) {

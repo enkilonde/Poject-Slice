@@ -16,7 +16,7 @@ Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\Str
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\StressTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\StressTest_Data\Managed\Photon3Unity3D.dll (this message is harmless)
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\StressTest_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.055 seconds
+- Completed reload, in  0.093 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,12 +24,12 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\StressTest_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\StressTest_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.817419 ms
-System memory in use before: 14.8 MB.
-System memory in use after: 14.8 MB.
+UnloadTime: 5.668842 ms
+System memory in use before: 14.4 MB.
+System memory in use after: 14.4 MB.
 
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 673.
-Total: 0.510853 ms (FindLiveObjects: 0.055050 ms CreateObjectMapping: 0.064381 ms MarkObjects: 0.361096 ms  DeleteObjects: 0.029391 ms)
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 588.
+Total: 0.450670 ms (FindLiveObjects: 0.047586 ms CreateObjectMapping: 0.023326 ms MarkObjects: 0.371360 ms  DeleteObjects: 0.007464 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -211,38 +211,102 @@ PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2
  
 (Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 34)
 
-ArgumentOutOfRangeException: Argument is out of range.
-Parameter name: index
-  at System.Collections.Generic.List`1[PortalLayerManager+Portal].RemoveAt (Int32 index) [0x00013] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:538 
-  at PortalLayerManager.Update () [0x00058] in C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PortalLayerManager.cs:29 
+2
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+CreatePortal:LaunchPortal(Single) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\CreatePortal.cs:85)
+CreatePortal:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\CreatePortal.cs:65)
  
-(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 538)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-ArgumentOutOfRangeException: Argument is out of range.
-Parameter name: index
-  at System.Collections.Generic.List`1[PortalLayerManager+Portal].RemoveAt (Int32 index) [0x00013] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:538 
-  at PortalLayerManager.Update () [0x00058] in C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PortalLayerManager.cs:29 
+YOU KILLED 1
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:40)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2948)
+PhotonNetwork:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2494)
+PhotonView:RpcSecure(String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:586)
+PhotonView:RPC(String, PhotonTargets, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:554)
+OnlineManager:Fall(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:24)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:127)
  
-(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 538)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
 
-ArgumentOutOfRangeException: Argument is out of range.
-Parameter name: index
-  at System.Collections.Generic.List`1[PortalLayerManager+Portal].RemoveAt (Int32 index) [0x00013] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:538 
-  at PortalLayerManager.Update () [0x00058] in C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PortalLayerManager.cs:29 
+YOU KILLED 1
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:40)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2948)
+PhotonNetwork:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2494)
+PhotonView:RpcSecure(String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:586)
+PhotonView:RPC(String, PhotonTargets, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:554)
+OnlineManager:Fall(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:24)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:127)
  
-(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 538)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
 
-ArgumentOutOfRangeException: Argument is out of range.
-Parameter name: index
-  at System.Collections.Generic.List`1[PortalLayerManager+Portal].RemoveAt (Int32 index) [0x00013] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:538 
-  at PortalLayerManager.Update () [0x00058] in C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PortalLayerManager.cs:29 
+YOU KILLED 1
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:40)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2948)
+PhotonNetwork:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2494)
+PhotonView:RpcSecure(String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:586)
+PhotonView:RPC(String, PhotonTargets, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:554)
+OnlineManager:Fall(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:24)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:127)
  
-(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 538)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
 
-ArgumentOutOfRangeException: Argument is out of range.
-Parameter name: index
-  at System.Collections.Generic.List`1[PortalLayerManager+Portal].RemoveAt (Int32 index) [0x00013] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:538 
-  at PortalLayerManager.Update () [0x00058] in C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PortalLayerManager.cs:29 
+YOU KILLED 1
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:40)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2948)
+PhotonNetwork:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2494)
+PhotonView:RpcSecure(String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:586)
+PhotonView:RPC(String, PhotonTargets, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:554)
+OnlineManager:Fall(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:24)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:127)
  
-(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 538)
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
+
+YOU KILLED 1
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:40)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2948)
+PhotonNetwork:RPC(PhotonView, String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2494)
+PhotonView:RpcSecure(String, PhotonTargets, Boolean, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:586)
+PhotonView:RPC(String, PhotonTargets, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:554)
+OnlineManager:Fall(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:24)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:127)
+ 
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
 
