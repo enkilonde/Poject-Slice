@@ -57,8 +57,6 @@ public class ignoreCollision : MonoBehaviour
 			_obj.gameObject.GetComponent<Renderer>().material.renderQueue = _Queue;
 		}
 
-		print ("Restored");
-
 	}
 
 	void OnTriggerEnter(Collider _coll){

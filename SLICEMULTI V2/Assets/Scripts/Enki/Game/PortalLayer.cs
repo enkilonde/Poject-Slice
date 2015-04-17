@@ -8,6 +8,7 @@ public class PortalLayer : MonoBehaviour {
 	public GameObject _camera;
 	private GameObject _LocalPlayer;
 
+
 	private Transform _PlayerMainCamera;
 
 	public LayerMask _LM;
@@ -19,20 +20,12 @@ public class PortalLayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		//GetComponent<PhotonView> ().RPC ("InstantiateCamera", PhotonTargets.All);
 
 		_manager = GameObject.Find ("Scripts").GetComponent<PortalLayerManager> ();
 		
 		if (GameObject.Find ("Scripts").GetComponent<RandomMatchmaker> ()._Player != null) {
 
 			_LocalPlayer = GameObject.Find ("Scripts").GetComponent<RandomMatchmaker> ()._Player;
-			_camera = Instantiate (_CameraPrefab, _LocalPlayer.transform.position + new Vector3(0, 0, 0), _LocalPlayer.transform.rotation) as GameObject;
-			_camera.transform.parent = _LocalPlayer.transform;
-
-			RenderTexture _Textu;
-			_Textu = new RenderTexture(500, 500, 16);
-			_camera.GetComponent<Camera>().targetTexture = _Textu;
-			transform.Find("PortalTexture").GetComponent<Renderer>().material.mainTexture = _Textu;
 
 			_Layer = _manager.CheckLayer(_Layer);
 
@@ -40,70 +33,35 @@ public class PortalLayer : MonoBehaviour {
 			
 			_manager.RegisterPortal(_Layer, this.gameObject);
 
-
-
 			_LM ^=(1<<_Layer);
-			_camera.GetComponent<Camera>().cullingMask = _LM;
-
 
 			GetComponent<ignoreCollision>().restoreLayer(_Layer);
-			//this.gameObject.layer = _Layer;
 			MoveToLayer(transform, _Layer);
 			gameObject.layer = 10;
-
-			_PlayerMainCamera = _camera.transform.parent.Find("Camera");
 
 		}
 
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
 
+		RaycastHit _hit;
 
-		float _Hypotenus = Vector3.Distance (_PlayerMainCamera.position, transform.position) / Mathf.Cos(Quaternion.Angle(_camera.transform.rotation, _PlayerMainCamera.rotation) * Mathf.Deg2Rad);
-
-		Vector3 _PlanePos = _PlayerMainCamera.position + ((_PlayerMainCamera.GetChild(0).position - _PlayerMainCamera.position) * _Hypotenus);
-
-
-
-		transform.Find ("Target").position = transform.position + ((_PlanePos - transform.position) / 10);
-
-		if (transform.Find ("Target")) 
+		if (Physics.Raycast (_LocalPlayer.transform.position, transform.position - _LocalPlayer.transform.position, out _hit)) 
 		{
-
-			_camera.transform.LookAt (transform.Find ("Target").position);
-
+			if (_hit.transform.gameObject == this.gameObject)
+			{
+				GetComponent<ignoreCollision>().SetWallQueue(2020);
+			}else
+			{
+				GetComponent<ignoreCollision>().SetWallQueue(2000);
+			}
 		}
 
-		_camera.GetComponent<Camera> ().fieldOfView = GetFOV (_camera.transform.position, transform.Find ("PortalExtremity").position, transform.Find ("PortalExtremity2").position);
-
-
-
-
-
-
-
-		//print (GetFOV (_camera.transform.position, transform.Find ("PortalExtremity").position, transform.Find ("PortalExtremity2").position));
 	}
 
 
-
-	private float GetFOV(Vector3 _PlayerPos, Vector3 _portalHeight, Vector3 _PortalHeight2)
-	{
-		
-		Vector3 _player_down = _PortalHeight2 - _PlayerPos;
-		Vector3 _player_extremity = _portalHeight - _PlayerPos;
-
-		float angle = Vector3.Angle (_player_down, _player_extremity);
-		if (angle > _FOVLimite) 
-		{
-			angle = _FOVLimite;
-		}
-
-		return angle;
-	}
 
 
 
