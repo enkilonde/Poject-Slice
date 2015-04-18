@@ -82,7 +82,7 @@ public class CreatePortal : MonoBehaviour {
 		_portal.GetComponent<PortalDegradation> ()._Size = _Size * _PortalSize;
 		_LManager._PortalsContainer.Add (_portal);
 		_portal.GetComponent<PortalIdentifier> ()._PlayerID = _PLayerID;
-		print (_PLayerID);
+		//print (_PLayerID);
 	}
 
 

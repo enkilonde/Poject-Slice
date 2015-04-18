@@ -22,6 +22,8 @@ public class LocalManager : MonoBehaviour
 
 	public bool _Fullscreen = true;
 
+	public bool _IsMouse = false;
+
 	void Awake()
 	{
 

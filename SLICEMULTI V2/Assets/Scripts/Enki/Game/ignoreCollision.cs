@@ -12,6 +12,8 @@ public class ignoreCollision : MonoBehaviour
 
 	private PhotonView MyPhotonView;
 
+	private bool _Protection = false;
+	public bool _ColliProt = false;
 
 	public bool _WallActivated = false;
 	public int _CheckNumberPortal = 0;
@@ -23,9 +25,9 @@ public class ignoreCollision : MonoBehaviour
 	{
 
 		_OnlineManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
+		_layer = GetComponent<PortalLayer> ()._Layer + 10;
 
 		Collider[] colli = Physics.OverlapSphere (transform.position, 0.1f);
-		_layer = GetComponent<PortalLayer> ()._Layer + 10;
 
 		foreach (Collider obj in colli) 
 		{
@@ -39,6 +41,11 @@ public class ignoreCollision : MonoBehaviour
 
 	}
 
+
+	void Update()
+	{
+
+	}
 
 
 	void LateUpdate()
@@ -80,58 +87,74 @@ public class ignoreCollision : MonoBehaviour
 
 	}
 
-	void OnTriggerEnter(Collider _coll){
+	void OnTriggerEnter(Collider _coll)
+	{
 
 
 
 
-		if (_coll.tag == "Player") {
+		if (_coll.tag == "Player" && !_Protection) 
+		{
+			//StartCoroutine(ReverseProtection(true));
+			_Protection = true;
+			if (!_coll.GetComponent<IsPlayerInPortal>()._InPortal)
+			{
+				_coll.GetComponent<IsPlayerInPortal>()._InPortal = true;
 
-
-
-			for (int i = 0; i< twoWalls.Count; i++){
-
-
-				Physics.IgnoreCollision(_coll.GetComponent<Collider>(), twoWalls[i].GetComponent<Collider>());
-				//twoWalls[i].collider.enabled = false;
-
-
-				//_coll.transform.Find("FootCollider").GetComponent<Jump>()._InWall = true;
-				//SceneController._control.transform.Find("Trought").GetComponent<AudioSource>().Play();
+				for (int i = 0; i< twoWalls.Count; i++)
+				{
+					Physics.IgnoreCollision(_coll.GetComponent<Collider>(), twoWalls[i].GetComponent<Collider>(), true);
+				}
 			}
 
-			}
+			
 
+			
 		}
+
+
+
+	}
 
 
 	void OnTriggerExit(Collider _coll)
 	{
-
-		if (_coll.tag == "Player") 
+		//transform.Find("CollsionProtection").GetComponent<Collider>().bounds.Contains
+		if (_coll.tag == "Player" && !GetComponent<Collider> ().bounds.Intersects (_coll.GetComponent<Collider>().bounds) && _Protection) 
 		{
-			print("collsionExit");
-				
-			for (int i = 0; i< twoWalls.Count; i++)
+			//StartCoroutine(ReverseProtection(false));
+			_Protection = false;
+			if (_coll.GetComponent<IsPlayerInPortal>()._InPortal)
 			{
-					
-					Physics.IgnoreCollision(_coll.GetComponent<Collider>(), twoWalls[i].GetComponent<Collider>(), false);
-				//_coll.transform.Find("FootCollider").GetComponent<Jump>()._InWall = false;
-					
-			
+				_coll.GetComponent<IsPlayerInPortal>()._InPortal = false;
 
-			}
 
-			if (_coll.transform.position.y < transform.position.y - 1)
-			{
-				_OnlineManager.Fall(_coll.transform.GetComponent<PhotonView>().ownerId, GetComponent<PortalIdentifier>()._PlayerID);
-				
+				if (_coll.transform.position.y < transform.position.y && transform.rotation.eulerAngles.y == 270)
+				{
+					_OnlineManager.Fall(_coll.transform.GetComponent<PhotonView>().ownerId, GetComponent<PortalIdentifier>()._PlayerID);
+				}
+
+				for (int i = 0; i< twoWalls.Count; i++) 
+				{
+					Physics.IgnoreCollision (_coll.GetComponent<Collider> (), twoWalls [i].GetComponent<Collider> (), false);
+				}
+
 			}
 
 		}
-		
+
 	}
 
+	
+
+
+	IEnumerator ReverseProtection(bool _prot)
+	{
+		yield return null;
+		yield return null;
+		_Protection = _prot;
+		print("protection : " + _Protection);
+	}
 
 
 
