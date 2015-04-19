@@ -5,7 +5,7 @@ public class PlayerState : MonoBehaviour
 {
 
 	public bool _IsMouse = false;
-	private PhotonView _PhotonView;
+	public PhotonView _PhotonView;
 	private LocalManager _LManager;
 
 
@@ -30,17 +30,16 @@ public class PlayerState : MonoBehaviour
 		if (_PhotonView.isMine) 
 		{
 
-			_IsMouse = _LManager._IsMouse;
+			_PhotonView.RPC("SetMouseState", PhotonTargets.All, _IsMouse);
 
 		}
-
-
 	}
 
+	[RPC]
 	public void SetMouseState(bool _State)
 	{
 
-		_LManager._IsMouse = _State;
+		_IsMouse = _State;
 
 	}
 }

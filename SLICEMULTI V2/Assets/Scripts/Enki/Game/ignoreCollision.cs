@@ -129,10 +129,10 @@ public class ignoreCollision : MonoBehaviour
 				_coll.GetComponent<IsPlayerInPortal>()._InPortal = false;
 
 				print("Exit Portal");
-				if (_coll.transform.position.y < transform.position.y && transform.rotation.eulerAngles.y == 270)
+				if (_coll.transform.position.y < transform.position.y+1 && transform.rotation.eulerAngles.y == 270 )
 				{
 					_OnlineManager.Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<PlayerState>()._IsMouse);
-
+					print(_coll.transform.GetComponent<PlayerState>()._IsMouse);
 				}
 
 				for (int i = 0; i< twoWalls.Count; i++) 

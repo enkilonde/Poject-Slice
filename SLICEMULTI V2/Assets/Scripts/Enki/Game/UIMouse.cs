@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class UIMouse : MonoBehaviour 
 {
 
-	private LocalManager _LManager;
+	private PlayerState _PS;
 	private Image _MouseIMG;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		_LManager = GameObject.Find("Manager").GetComponent<LocalManager>();
+		_PS = transform.parent.GetComponent<PlayerState> ();
 		_MouseIMG = transform.parent.Find ("Canvas").Find ("MouseUI").GetComponent<Image>();
 	}
 	
@@ -20,7 +20,7 @@ public class UIMouse : MonoBehaviour
 	void Update () 
 	{
 
-		_MouseIMG.enabled = _LManager._IsMouse;
+		_MouseIMG.enabled = _PS._IsMouse;
 
 	}
 }

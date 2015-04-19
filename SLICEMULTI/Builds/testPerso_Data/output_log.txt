@@ -24,12 +24,12 @@ desktop: 1920x1080 60Hz; virtual: 2498x2160 at -578,0
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.599082 ms
+UnloadTime: 4.775898 ms
 System memory in use before: 122.5 MB.
 System memory in use after: 122.5 MB.
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 587.
-Total: 0.450204 ms (FindLiveObjects: 0.045253 ms CreateObjectMapping: 0.024726 ms MarkObjects: 0.373226 ms  DeleteObjects: 0.006064 ms)
+Total: 0.382090 ms (FindLiveObjects: 0.038722 ms CreateObjectMapping: 0.034523 ms MarkObjects: 0.302779 ms  DeleteObjects: 0.005131 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -198,6 +198,20 @@ UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifa
 PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Can't join random room!
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+RandomMatchmaker:OnPhotonRandomJoinFailed() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:30)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1269)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
+ 
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 30)
 
 Room Joined
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -213,7 +227,7 @@ PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2
  
 (Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 36)
 
-Room: 'Room1' visible,open 2/0 players.
+Room: 'Room1' visible,open 1/0 players.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:37)
@@ -249,12 +263,127 @@ PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.771425 ms
-System memory in use before: 123.5 MB.
-System memory in use after: 123.6 MB.
+player 2Connected
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:OnPhotonPlayerConnected(PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:95)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1794)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 562.
-Total: 0.663409 ms (FindLiveObjects: 0.043387 ms CreateObjectMapping: 0.029391 ms MarkObjects: 0.529048 ms  DeleteObjects: 0.060182 ms)
+Exit Portal
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+Message
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:78)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1821)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
+ 
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
+
+YOU GOT KILLED BY 2
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:81)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1821)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
+ 
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
+
+Message
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:78)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1821)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
+ 
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
+
+YOU GOT KILLED BY 2
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+OnlineManager:SendDeathMessage(Int32, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:81)
+System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)
+System.Reflection.MonoMethod:Invoke(Object, BindingFlags, Binder, Object[], CultureInfo) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs:222)
+System.Reflection.MethodBase:Invoke(Object, Object[]) (at /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MethodBase.cs:115)
+NetworkingPeer:ExecuteRPC(Hashtable, PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2120)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1821)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
+ 
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Reflection/MonoMethod.cs Line: 222)
+
+Exit Portal
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+Exit Portal
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+Exit Portal
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.425724 ms
+System memory in use before: 127.4 MB.
+System memory in use after: 127.5 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 562.
+Total: 0.765580 ms (FindLiveObjects: 0.051785 ms CreateObjectMapping: 0.039655 ms MarkObjects: 0.630752 ms  DeleteObjects: 0.042454 ms)
 
 Waiting for finish
