@@ -5,9 +5,12 @@ public class RandomMatchmaker : MonoBehaviour {
 
 	public GameObject _Player;
 
+	private OnlineManager _OManager;
+
 	// Use this for initialization
 	void Start () {
 		PhotonNetwork.ConnectUsingSettings("0.7");
+		_OManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
 
 	}
 	
@@ -33,15 +36,13 @@ public class RandomMatchmaker : MonoBehaviour {
 		Debug.Log ("Room Joined");
 		Debug.Log (PhotonNetwork.room);
 
-		_Player = PhotonNetwork.Instantiate ("Player", new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f)), Quaternion.identity, 0) as GameObject;
+		_Player = PhotonNetwork.Instantiate ("Player", new Vector3(Random.Range(-40.0f, 40.0f), 2, Random.Range(-20.0f, 20.0f)), Quaternion.identity, 0) as GameObject;
 		//GameObject Player = PhotonNetwork.Instantiate ("Player", new Vector3(0, 0, 0), Quaternion.identity, 0) as GameObject;
 
 		_Player.name = "Player " + PhotonNetwork.player.ID;
 		PhotonNetwork.player.name = _Player.name;
 	
-
-
-
+		//_OManager._PhotonView.RPC ("updatePlayerList", PhotonTargets.All);
 
 	}
 

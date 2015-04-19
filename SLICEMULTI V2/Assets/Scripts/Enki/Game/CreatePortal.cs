@@ -82,6 +82,7 @@ public class CreatePortal : MonoBehaviour {
 		_portal.GetComponent<PortalDegradation> ()._Size = _Size * _PortalSize;
 		_LManager._PortalsContainer.Add (_portal);
 		_portal.GetComponent<PortalIdentifier> ()._PlayerID = _PLayerID;
+		_portal.GetComponent<PortalIdentifier> ()._Owner = this.gameObject;
 		//print (_PLayerID);
 	}
 
@@ -102,7 +103,7 @@ public class CreatePortal : MonoBehaviour {
 			}
 			else if (_hit.transform.tag == "Portal")
 			{
-
+				/*
 				RaycastHit _hit2;
 				LayerMask _layer2 = LayerMask.GetMask ("Ground", "Ignored 1", "Ignored 2", "Ignored 3", "Ignored 4", "Ignored 5", "Ignored 6", "Ignored 7", "Ignored 8", "Ignored 9", "Ignored 10");
 				_layer2 ^= (1 << _hit.transform.GetChild(0).gameObject.layer);
@@ -116,7 +117,7 @@ public class CreatePortal : MonoBehaviour {
 					}
 
 				}
-
+				*/
 			}
 		}
 	}
