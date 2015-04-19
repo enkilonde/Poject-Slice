@@ -6,6 +6,7 @@ public class UIMouse : MonoBehaviour
 {
 
 	private PlayerState _PS;
+	private NetworkCharacter _NC;
 	private Image _MouseIMG;
 
 
@@ -13,6 +14,7 @@ public class UIMouse : MonoBehaviour
 	void Start () 
 	{
 		_PS = transform.parent.GetComponent<PlayerState> ();
+		_NC = transform.parent.GetComponent<NetworkCharacter> ();
 		_MouseIMG = transform.parent.Find ("Canvas").Find ("MouseUI").GetComponent<Image>();
 	}
 	
@@ -20,7 +22,7 @@ public class UIMouse : MonoBehaviour
 	void Update () 
 	{
 
-		_MouseIMG.enabled = _PS._IsMouse;
+		_MouseIMG.enabled = _NC._IsMouse;
 
 	}
 }

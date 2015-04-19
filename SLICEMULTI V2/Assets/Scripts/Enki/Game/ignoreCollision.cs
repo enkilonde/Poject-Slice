@@ -127,12 +127,14 @@ public class ignoreCollision : MonoBehaviour
 			if (_coll.GetComponent<IsPlayerInPortal>()._InPortal)
 			{
 				_coll.GetComponent<IsPlayerInPortal>()._InPortal = false;
-
+				//_coll.transform.position.y < transform.position.y+1 && transform.rotation.eulerAngles.y == 270 
 				print("Exit Portal");
-				if (_coll.transform.position.y < transform.position.y+1 && transform.rotation.eulerAngles.y == 270 )
+				if (true)
 				{
-					_OnlineManager.Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<PlayerState>()._IsMouse);
+					//_OnlineManager.Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<PlayerState>()._IsMouse);
 					print(_coll.transform.GetComponent<PlayerState>()._IsMouse);
+					Destroy(this.gameObject);
+					Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
 				}
 
 				for (int i = 0; i< twoWalls.Count; i++) 
@@ -157,6 +159,26 @@ public class ignoreCollision : MonoBehaviour
 		print("protection : " + _Protection);
 	}
 
-
+	public void Fall(GameObject _Killed, GameObject _Killer, bool IsMouse)
+	{
+		
+		int _KilledID = _Killed.GetComponent<PhotonView> ().ownerId;
+		int _KillerID = _Killer.GetComponent<PhotonView> ().ownerId;
+		
+		if (_KilledID != _KillerID) 
+		{
+			//GetComponent<PhotonView> ().RPC ("SendDeathMessage", PhotonTargets.All, _KilledID, _KillerID);
+			if (IsMouse)
+			{
+				print("SWAP MOUSE");
+				_Killed.GetComponent<NetworkCharacter>()._IsMouse = false;
+				_Killer.GetComponent<NetworkCharacter>()._IsMouse = true;
+			}
+			
+		} else 
+		{
+			print("YOU KILLED YOURSELF, NOOB");
+		}
+	}
 
 }

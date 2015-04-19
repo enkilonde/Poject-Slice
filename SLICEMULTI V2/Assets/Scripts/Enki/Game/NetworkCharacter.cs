@@ -11,7 +11,8 @@ public class NetworkCharacter : MonoBehaviour {
 
 	private float _TPAmount = 0;
 	private float _TPLim = 0;
-	
+
+	public bool _IsMouse = false;
 
 	// Use this for initialization
 	void Start () {
@@ -87,12 +88,14 @@ public class NetworkCharacter : MonoBehaviour {
 			// We own this player: send the others our data
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
+			stream.SendNext(_IsMouse);
 		}
 		else
 		{
 			// Network player, receive data
 			_position = (Vector3) stream.ReceiveNext();
 			_rotation = (Quaternion) stream.ReceiveNext();
+			_IsMouse = (bool) stream.ReceiveNext();
 		}
 	}
 

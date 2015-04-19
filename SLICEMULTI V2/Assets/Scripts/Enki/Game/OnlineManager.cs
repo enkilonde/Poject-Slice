@@ -61,8 +61,8 @@ public class OnlineManager : MonoBehaviour
 			if (IsMouse)
 			{
 				print("SWAP MOUSE");
-				_Killed.GetComponent<PlayerState>()._PhotonView.RPC("SetMouseState", PhotonTargets.All, false);
-				_Killer.GetComponent<PlayerState>()._PhotonView.RPC("SetMouseState", PhotonTargets.All, true);
+				_Killed.GetComponent<NetworkCharacter>()._IsMouse = false;
+				_Killer.GetComponent<NetworkCharacter>()._IsMouse = true;
 			}
 
 		} else 
@@ -118,7 +118,7 @@ public class OnlineManager : MonoBehaviour
 
 		if (_Players.Count == 1) 
 		{
-			_Players[0].GetComponent<PlayerState>()._PhotonView.RPC("SetMouseState", PhotonTargets.All, true);
+			_Players[0].GetComponent<NetworkCharacter>()._IsMouse = true;
 
 		}
 
