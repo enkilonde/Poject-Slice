@@ -16,20 +16,20 @@ Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\tes
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\Photon3Unity3D.dll (this message is harmless)
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.085 seconds
-desktop: 1920x1080 60Hz; virtual: 2498x2160 at -578,0
+- Completed reload, in  0.285 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.666043 ms
-System memory in use before: 122.5 MB.
-System memory in use after: 122.5 MB.
+UnloadTime: 15.520153 ms
+System memory in use before: 14.3 MB.
+System memory in use after: 14.4 MB.
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 587.
-Total: 0.512253 ms (FindLiveObjects: 0.045720 ms CreateObjectMapping: 0.050385 ms MarkObjects: 0.408682 ms  DeleteObjects: 0.006064 ms)
+Total: 1.080957 ms (FindLiveObjects: 0.118499 ms CreateObjectMapping: 0.067180 ms MarkObjects: 0.878481 ms  DeleteObjects: 0.013995 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -183,21 +183,19 @@ PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\A
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
 
-Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+Can't join random room!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object, Object)
-UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
-PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+UnityEngine.Debug:Log(Object)
+RandomMatchmaker:OnPhotonRandomJoinFailed() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:30)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1269)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
-
-Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object, Object)
-UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
-PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 30)
 
 Room Joined
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -213,7 +211,7 @@ PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2
  
 (Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 36)
 
-Room: 'Room1' visible,open 2/0 players.
+Room: 'Room1' visible,open 1/0 players.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:37)
@@ -227,21 +225,14 @@ PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2
  
 (Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 37)
 
-ttt
+player 2Connected
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-PlayerState:Awake() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PlayerState.cs:19)
-UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
-UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObject.gen.cs:60)
-UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:80)
-NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2379)
-PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2133)
-PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2077)
-RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:39)
+OnlineManager:OnPhotonPlayerConnected(PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:95)
 UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
 NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
-NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1789)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1794)
 ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
 ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
 ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
@@ -249,19 +240,11 @@ PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-Exit Portal
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
 True
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:135)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:134)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
@@ -269,16 +252,8 @@ SWAP MOUSE
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:173)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:137)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-Exit Portal
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
+ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:171)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:136)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
@@ -286,32 +261,7 @@ True
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:135)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-YOU KILLED YOURSELF, NOOB
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:183)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:137)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-Exit Portal
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-True
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:135)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:134)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
@@ -319,17 +269,8 @@ SWAP MOUSE
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:173)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:137)
+ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:171)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:136)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.531161 ms
-System memory in use before: 125.4 MB.
-System memory in use after: 125.5 MB.
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 562.
-Total: 0.658278 ms (FindLiveObjects: 0.047119 ms CreateObjectMapping: 0.055050 ms MarkObjects: 0.517385 ms  DeleteObjects: 0.037322 ms)
-
-Waiting for finish

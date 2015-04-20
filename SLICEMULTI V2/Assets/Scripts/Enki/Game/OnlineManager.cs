@@ -136,9 +136,20 @@ public class OnlineManager : MonoBehaviour
 	}
 
 
-	public int GetPlayerListPos(GameObject Player)
+	public GameObject GetPlayerByID(int _ID)
 	{
-		return _Players.IndexOf (Player);
+		foreach (GameObject _player in _Players) 
+		{
+
+			if (_player.GetComponent<PhotonView>().ownerId == _ID)
+			{
+				return _player;
+			}
+
+		}
+
+		return null;
+
 	}
 
 

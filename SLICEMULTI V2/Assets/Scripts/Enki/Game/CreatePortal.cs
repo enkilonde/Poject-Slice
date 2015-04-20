@@ -85,6 +85,7 @@ public class CreatePortal : MonoBehaviour {
 		_portal.GetComponent<PortalDegradation> ()._Size = _Size * _PortalSize;
 		_LManager._PortalsContainer.Add (_portal);
 		_portal.GetComponent<PortalIdentifier> ()._PlayerID = _PLayerID;
+		_portal.GetComponent<PhotonView> ().RPC ("SetID", PhotonTargets.All, _PLayerID);
 		_portal.GetComponent<PortalIdentifier> ()._OwnerIndex = _OManager._Players.IndexOf (this.gameObject);
 
 

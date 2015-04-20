@@ -19,4 +19,13 @@ public class PortalIdentifier : MonoBehaviour
 	{
 	
 	}
+
+
+	[RPC]
+	public void SetID(int ID)
+	{
+
+		_PlayerID = ID;
+
+	}
 }

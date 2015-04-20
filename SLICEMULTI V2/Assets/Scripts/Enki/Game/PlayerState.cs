@@ -16,7 +16,6 @@ public class PlayerState : MonoBehaviour
 		_PhotonView = GetComponent<PhotonView> ();
 		if (_PhotonView.isMine) 
 		{
-			print("ttt");
 			_LManager = GameObject.Find("Manager").GetComponent<LocalManager>();
 
 		}
