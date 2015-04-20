@@ -100,4 +100,16 @@ public class NetworkCharacter : MonoBehaviour {
 	}
 
 
+
+	[RPC]
+	public void SwapMouse(bool mouse)
+	{
+
+		_IsMouse = mouse;
+
+
+	}
+
+
+
 }

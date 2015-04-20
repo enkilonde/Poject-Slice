@@ -129,12 +129,12 @@ public class ignoreCollision : MonoBehaviour
 				_coll.GetComponent<IsPlayerInPortal>()._InPortal = false;
 				//_coll.transform.position.y < transform.position.y+1 && transform.rotation.eulerAngles.y == 270 
 				print("Exit Portal");
-				if (true)
+				if ((transform.rotation.eulerAngles.x <1 && transform.rotation.eulerAngles.x > -1) && (transform.rotation.eulerAngles.z < 1 && transform.rotation.eulerAngles.z > -1))
 				{
 					//_OnlineManager.Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<PlayerState>()._IsMouse);
-					print(_coll.transform.GetComponent<PlayerState>()._IsMouse);
+					print(_coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
 					Destroy(this.gameObject);
-					Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
+					Fall(_coll.gameObject, _OnlineManager._Players[GetComponent<PortalIdentifier>()._OwnerIndex], _coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
 				}
 
 				for (int i = 0; i< twoWalls.Count; i++) 
@@ -171,8 +171,11 @@ public class ignoreCollision : MonoBehaviour
 			if (IsMouse)
 			{
 				print("SWAP MOUSE");
-				_Killed.GetComponent<NetworkCharacter>()._IsMouse = false;
-				_Killer.GetComponent<NetworkCharacter>()._IsMouse = true;
+				//_Killed.GetComponent<NetworkCharacter>()._IsMouse = false;
+				//_Killer.GetComponent<NetworkCharacter>()._IsMouse = true;
+
+				_Killed.GetComponent<NetworkCharacter>().GetComponent<PhotonView>().RPC("SwapMouse", PhotonTargets.All, false);
+				_Killer.GetComponent<NetworkCharacter>().GetComponent<PhotonView>().RPC("SwapMouse", PhotonTargets.All, true);
 			}
 			
 		} else 

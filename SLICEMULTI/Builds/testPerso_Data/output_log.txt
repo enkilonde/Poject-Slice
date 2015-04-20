@@ -16,7 +16,7 @@ Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\tes
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\Photon3Unity3D.dll (this message is harmless)
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.089 seconds
+- Completed reload, in  0.085 seconds
 desktop: 1920x1080 60Hz; virtual: 2498x2160 at -578,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,12 +24,12 @@ desktop: 1920x1080 60Hz; virtual: 2498x2160 at -578,0
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.878535 ms
+UnloadTime: 5.666043 ms
 System memory in use before: 122.5 MB.
 System memory in use after: 122.5 MB.
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 587.
-Total: 0.406350 ms (FindLiveObjects: 0.048519 ms CreateObjectMapping: 0.019127 ms MarkObjects: 0.332171 ms  DeleteObjects: 0.005598 ms)
+Total: 0.512253 ms (FindLiveObjects: 0.045720 ms CreateObjectMapping: 0.050385 ms MarkObjects: 0.408682 ms  DeleteObjects: 0.006064 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -257,7 +257,7 @@ ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Sl
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-False
+True
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
@@ -282,7 +282,7 @@ ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Sl
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-False
+True
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
@@ -290,10 +290,46 @@ ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Sl
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at ignoreCollision.Fall (UnityEngine.GameObject _Killed, UnityEngine.GameObject _Killer, Boolean IsMouse) [0x0000c] in C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:166 
-  at ignoreCollision.OnTriggerExit (UnityEngine.Collider _coll) [0x00095] in C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:137 
+YOU KILLED YOURSELF, NOOB
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:183)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:137)
  
-(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/ignoreCollision.cs Line: 166)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+Exit Portal
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:131)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+True
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:135)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+SWAP MOUSE
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:173)
+ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:137)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.531161 ms
+System memory in use before: 125.4 MB.
+System memory in use after: 125.5 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 562.
+Total: 0.658278 ms (FindLiveObjects: 0.047119 ms CreateObjectMapping: 0.055050 ms MarkObjects: 0.517385 ms  DeleteObjects: 0.037322 ms)
 
 Waiting for finish

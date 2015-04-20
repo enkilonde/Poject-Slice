@@ -24,9 +24,12 @@ public class CreatePortal : MonoBehaviour {
 
 	private int _PLayerID;
 
+	private OnlineManager _OManager;
+
 	void Awake()
 	{
 		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
+		_OManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
 	}
 
 	// Use this for initialization
@@ -82,7 +85,9 @@ public class CreatePortal : MonoBehaviour {
 		_portal.GetComponent<PortalDegradation> ()._Size = _Size * _PortalSize;
 		_LManager._PortalsContainer.Add (_portal);
 		_portal.GetComponent<PortalIdentifier> ()._PlayerID = _PLayerID;
-		_portal.GetComponent<PortalIdentifier> ()._Owner = this.gameObject;
+		_portal.GetComponent<PortalIdentifier> ()._OwnerIndex = _OManager._Players.IndexOf (this.gameObject);
+
+
 		//print (_PLayerID);
 	}
 

@@ -136,4 +136,10 @@ public class OnlineManager : MonoBehaviour
 	}
 
 
+	public int GetPlayerListPos(GameObject Player)
+	{
+		return _Players.IndexOf (Player);
+	}
+
+
 }
