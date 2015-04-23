@@ -19,7 +19,8 @@ public class Jump : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 
 	}
 	
@@ -55,6 +56,15 @@ public class Jump : MonoBehaviour {
 			_Grounded = true;
 		}
 	}
+
+
+	IEnumerator JumpReset()
+	{
+
+		yield return new WaitForSeconds (3.5f);
+		_Grounded = true;
+	}
+
 
 
 	void OnTriggerExit(Collider coll){

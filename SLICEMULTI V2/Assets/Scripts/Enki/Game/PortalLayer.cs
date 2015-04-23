@@ -48,6 +48,8 @@ public class PortalLayer : MonoBehaviour {
 
 		RaycastHit _hit;
 
+
+
 		if (Vector3.Distance (_LocalPlayer.transform.Find ("Camera").position, transform.position) > 1) 
 		{
 			if (Physics.Raycast (_LocalPlayer.transform.Find ("Camera").position, transform.position - _LocalPlayer.transform.Find ("Camera").position, out _hit)) {

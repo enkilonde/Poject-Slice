@@ -3,6 +3,9 @@ using System.Collections;
 
 public class RandomMatchmaker : MonoBehaviour {
 
+	public string _RoomID = "Room";
+
+
 	private Vector3 _SpawnPosition;
 	private float _SpawnRandom;
 
@@ -16,7 +19,7 @@ public class RandomMatchmaker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PhotonNetwork.ConnectUsingSettings("0.7");
+		PhotonNetwork.ConnectUsingSettings(_RoomID);
 		_OManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
 		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
 
