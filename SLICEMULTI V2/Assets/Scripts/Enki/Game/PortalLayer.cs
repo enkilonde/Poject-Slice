@@ -57,10 +57,9 @@ public class PortalLayer : MonoBehaviour {
 					GetComponent<ignoreCollision> ()._WallActivated = true;
 				} else 
 				{
-					if (!_manager.CheckIfOtherPortalBool(transform.position))
+					if (!_manager.CheckIfOtherPortalBool(transform.position, _Layer))
 					{
 						GetComponent<ignoreCollision> ()._WallActivated = false;
-						//print("ttt");
 					}
 				}
 			}

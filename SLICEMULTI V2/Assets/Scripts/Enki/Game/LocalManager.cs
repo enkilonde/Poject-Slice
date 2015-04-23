@@ -28,6 +28,9 @@ public class LocalManager : MonoBehaviour
 
 	public bool _IsMouse = false;
 
+	public Shader _ShaderPortalTransparent;
+	public Shader _ShaderPortalOpaque;
+
 	void Awake()
 	{
 
@@ -41,7 +44,7 @@ public class LocalManager : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 
-
+		_ShaderPortalOpaque = Shader.Find ("Diffuse");
 	}
 	// Use this for initialization
 	void Start () 

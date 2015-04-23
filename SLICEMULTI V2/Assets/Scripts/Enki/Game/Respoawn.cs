@@ -9,6 +9,8 @@ public class Respoawn : MonoBehaviour
 	private Vector3 _SpawnPosition;
 	private float _SpawnRandom;
 
+	public float _LimiteHauteur = -100;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -25,7 +27,7 @@ public class Respoawn : MonoBehaviour
 	void Update () 
 	{
 
-		if (transform.position.y <= -100) 
+		if (transform.position.y <= _LimiteHauteur) 
 		{
 			transform.parent.position = new Vector3 (_SpawnPosition.x + Random.Range(-_SpawnRandom, _SpawnRandom), _SpawnPosition.y, _SpawnPosition.z + Random.Range(-_SpawnRandom, _SpawnRandom));
 			transform.parent.GetComponent<Rigidbody>().velocity = Vector3.zero;

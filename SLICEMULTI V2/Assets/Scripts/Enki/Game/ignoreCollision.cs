@@ -20,12 +20,19 @@ public class ignoreCollision : MonoBehaviour
 	public int _CheckNumberPortal = 0;
 
 	private OnlineManager _OnlineManager;
+	private LocalManager _LManager;
+
+	public Shader _ShaderPortalTransparent;
+	public Shader _ShaderPortalOpaque;
+
+	private GameObject _PortalTexture;
 
 	// Use this for initialization
 	void Start () 
 	{
 
 		_OnlineManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
+		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
 		_layer = GetComponent<PortalLayer> ()._Layer + 10;
 
 		Collider[] colli = Physics.OverlapSphere (transform.position, 0.1f);
@@ -39,6 +46,11 @@ public class ignoreCollision : MonoBehaviour
 				obj.gameObject.GetComponent<Renderer>().material.renderQueue = 2020;
 			}
 		}
+
+
+		_PortalTexture = transform.Find ("PortalTexture").gameObject;
+		_ShaderPortalTransparent = _LManager._ShaderPortalTransparent;
+		_ShaderPortalOpaque = _LManager._ShaderPortalOpaque;
 
 	}
 
@@ -55,9 +67,11 @@ public class ignoreCollision : MonoBehaviour
 		if (_WallActivated) 
 		{
 			SetWallQueue (2020);
+			_PortalTexture.GetComponent<Renderer>().material.shader = _ShaderPortalTransparent;
 		} else 
 		{
 			SetWallQueue (2000);
+			_PortalTexture.GetComponent<Renderer>().material.shader = _ShaderPortalOpaque;
 		}
 
 
@@ -139,7 +153,6 @@ public class ignoreCollision : MonoBehaviour
 				{
 					//_OnlineManager.Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<PlayerState>()._IsMouse);
 					print(_coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
-					Destroy(this.gameObject);
 					Fall(_coll.gameObject, _OnlineManager.GetPlayerByID(GetComponent<PortalIdentifier>()._PlayerID), _coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
 				}
 
