@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public class LocalManager : MonoBehaviour 
 {
 
+
+	public Vector3 _SpawnPosition = Vector3.zero;
+	public float _SpawnRandom = 0;
+
 	public bool _IsPaused = false;
 
 	public float _MasterVolume = 5;
@@ -24,6 +28,9 @@ public class LocalManager : MonoBehaviour
 
 	public bool _IsMouse = false;
 
+	public Shader _ShaderPortalTransparent;
+	public Shader _ShaderPortalOpaque;
+
 	void Awake()
 	{
 
@@ -37,7 +44,7 @@ public class LocalManager : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 
-
+		_ShaderPortalOpaque = Shader.Find ("Diffuse");
 	}
 	// Use this for initialization
 	void Start () 

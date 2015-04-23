@@ -14,6 +14,13 @@ public class NetworkCharacter : MonoBehaviour {
 
 	public bool _IsMouse = false;
 
+	public Material _NonMouse;
+	public Material _Mouse;
+
+
+	public int _Score = 0;
+	private ScoreManager _Scrmanager;
+
 	// Use this for initialization
 	void Start () {
 		if (GetComponent<PhotonView> ().isMine == true) 
@@ -26,13 +33,14 @@ public class NetworkCharacter : MonoBehaviour {
 			transform.Find ("Camera").GetComponent<MouseLook> ().enabled = true;
 			transform.Find ("FootCollider").gameObject.SetActive (true);
 			transform.Find ("Scripts").gameObject.SetActive (true);
+			_Scrmanager = GetComponent<ScoreManager>();
 		} else 
 		{
 
 
 		}
 
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -75,8 +83,32 @@ public class NetworkCharacter : MonoBehaviour {
 
 		}
 
-;
 
+		if (GetComponent<PhotonView> ().isMine) 
+		{
+			_Scrmanager._LocalScore = _Score;
+			
+
+			
+		}
+
+
+		if (_IsMouse) 
+		{
+			GetComponent<Renderer> ().material = _Mouse;
+		} else 
+		{
+			GetComponent<Renderer> ().material = _NonMouse;
+		}
+
+
+
+		if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PhotonView> ().isMine)
+		{
+			_Score++;
+
+
+		}
 
 	
 	}
@@ -89,6 +121,7 @@ public class NetworkCharacter : MonoBehaviour {
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
 			stream.SendNext(_IsMouse);
+			stream.SendNext(_Score);
 		}
 		else
 		{
@@ -96,6 +129,7 @@ public class NetworkCharacter : MonoBehaviour {
 			_position = (Vector3) stream.ReceiveNext();
 			_rotation = (Quaternion) stream.ReceiveNext();
 			_IsMouse = (bool) stream.ReceiveNext();
+			_Score = (int) stream.ReceiveNext();
 		}
 	}
 

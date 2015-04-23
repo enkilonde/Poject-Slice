@@ -16,7 +16,7 @@ Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\tes
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\Photon3Unity3D.dll (this message is harmless)
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.285 seconds
+- Completed reload, in  0.082 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,12 +24,12 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\testPerso_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 15.520153 ms
-System memory in use before: 14.3 MB.
-System memory in use after: 14.4 MB.
+UnloadTime: 4.748373 ms
+System memory in use before: 14.8 MB.
+System memory in use after: 14.8 MB.
 
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 587.
-Total: 1.080957 ms (FindLiveObjects: 0.118499 ms CreateObjectMapping: 0.067180 ms MarkObjects: 0.878481 ms  DeleteObjects: 0.013995 ms)
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 940.
+Total: 0.535113 ms (FindLiveObjects: 0.064381 ms CreateObjectMapping: 0.040588 ms MarkObjects: 0.423145 ms  DeleteObjects: 0.006064 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -186,7 +186,7 @@ PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\A
 Can't join random room!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-RandomMatchmaker:OnPhotonRandomJoinFailed() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:30)
+RandomMatchmaker:OnPhotonRandomJoinFailed() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:42)
 UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
 NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
 NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1269)
@@ -195,12 +195,12 @@ ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
 ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
 PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
  
-(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 30)
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 42)
 
 Room Joined
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:36)
+RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:48)
 UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
 NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
 NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1789)
@@ -209,12 +209,12 @@ ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
 ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
 PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
  
-(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 36)
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 48)
 
 Room: 'Room1' visible,open 1/0 players.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:37)
+RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:49)
 UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
 NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
 NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1789)
@@ -223,54 +223,223 @@ ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
 ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
 PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
  
-(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 37)
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 49)
 
-player 2Connected
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.629846 ms
+System memory in use before: 15.4 MB.
+System memory in use after: 15.4 MB.
+
+Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 616.
+Total: 1.299294 ms (FindLiveObjects: 0.039655 ms CreateObjectMapping: 0.065781 ms MarkObjects: 1.093086 ms  DeleteObjects: 0.099838 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.636351 ms
+System memory in use before: 15.2 MB.
+System memory in use after: 15.3 MB.
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1180.
+Total: 0.783775 ms (FindLiveObjects: 0.070446 ms CreateObjectMapping: 0.040121 ms MarkObjects: 0.666675 ms  DeleteObjects: 0.006064 ms)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransform.gen.cs:119)
+PauseActions:Start() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Menu\PauseActions.cs:46)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransform.gen.cs Line: 119)
+
+Can't join random room!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-OnlineManager:OnPhotonPlayerConnected(PhotonPlayer) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\OnlineManager.cs:95)
+RandomMatchmaker:OnPhotonRandomJoinFailed() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:42)
 UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
 NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
-NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1794)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1269)
 ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
 ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
 ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
 PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 42)
 
-True
+Room Joined
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:134)
+RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:48)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1789)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 48)
 
-SWAP MOUSE
+Room: 'Room1' visible,open 1/0 players.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:171)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:136)
+RandomMatchmaker:OnJoinedRoom() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\RandomMatchmaker.cs:49)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1953)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1789)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:83)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+(Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 49)
 
-True
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:134)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.854002 ms
+System memory in use before: 15.3 MB.
+System memory in use after: 15.4 MB.
 
-SWAP MOUSE
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:171)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:136)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+Unloading 66 unused Assets to reduce memory usage. Loaded Objects now: 616.
+Total: 1.442986 ms (FindLiveObjects: 0.046653 ms CreateObjectMapping: 0.060182 ms MarkObjects: 1.217184 ms  DeleteObjects: 0.116633 ms)
 
