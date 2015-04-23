@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a329ce5541a495c4aa1bf7b6741cad75
+timeCreated: 1429783615
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - _LightPaper: {fileID: 2800000, guid: 914627ce2885e11448f2181b288221cd, type: 3}
+  - _DarkPaper: {fileID: 2800000, guid: f6e783ce40b76354c984ee7ab6f3a121, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

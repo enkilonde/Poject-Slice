@@ -14,6 +14,9 @@ public class NetworkCharacter : MonoBehaviour {
 
 	public bool _IsMouse = false;
 
+	public Material _NonMouse;
+	public Material _Mouse;
+
 	// Use this for initialization
 	void Start () {
 		if (GetComponent<PhotonView> ().isMine == true) 
@@ -75,8 +78,16 @@ public class NetworkCharacter : MonoBehaviour {
 
 		}
 
-;
 
+
+
+		if (_IsMouse) 
+		{
+			GetComponent<Renderer> ().material = _Mouse;
+		} else 
+		{
+			GetComponent<Renderer> ().material = _NonMouse;
+		}
 
 	
 	}

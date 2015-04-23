@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public class LocalManager : MonoBehaviour 
 {
 
+
+	public Vector3 _SpawnPosition = Vector3.zero;
+	public float _SpawnRandom = 0;
+
 	public bool _IsPaused = false;
 
 	public float _MasterVolume = 5;

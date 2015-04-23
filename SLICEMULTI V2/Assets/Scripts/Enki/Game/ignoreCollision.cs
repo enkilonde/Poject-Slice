@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class ignoreCollision : MonoBehaviour 
 {
 
+
 	public List<GameObject> twoWalls = new List<GameObject>();
 
 	public static bool _InWall = false;

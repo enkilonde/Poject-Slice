@@ -3,14 +3,26 @@ using System.Collections;
 
 public class RandomMatchmaker : MonoBehaviour {
 
+	private Vector3 _SpawnPosition;
+	private float _SpawnRandom;
+
+
 	public GameObject _Player;
 
 	private OnlineManager _OManager;
+
+
+	private LocalManager _LManager;
 
 	// Use this for initialization
 	void Start () {
 		PhotonNetwork.ConnectUsingSettings("0.7");
 		_OManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
+		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
+
+		_SpawnPosition = _LManager._SpawnPosition;
+		_SpawnRandom = _LManager._SpawnRandom;
+
 
 	}
 	
@@ -36,7 +48,9 @@ public class RandomMatchmaker : MonoBehaviour {
 		Debug.Log ("Room Joined");
 		Debug.Log (PhotonNetwork.room);
 
-		_Player = PhotonNetwork.Instantiate ("Player", new Vector3(Random.Range(-40.0f, 40.0f), 2, Random.Range(-20.0f, 20.0f)), Quaternion.identity, 0) as GameObject;
+		Vector3 _position = new Vector3 (_SpawnPosition.x + Random.Range(-_SpawnRandom, _SpawnRandom), _SpawnPosition.y, _SpawnPosition.z + Random.Range(-_SpawnRandom, _SpawnRandom));
+
+		_Player = PhotonNetwork.Instantiate ("Player", _position, Quaternion.identity, 0) as GameObject;
 		//GameObject Player = PhotonNetwork.Instantiate ("Player", new Vector3(0, 0, 0), Quaternion.identity, 0) as GameObject;
 
 		_Player.name = "Player " + PhotonNetwork.player.ID;
