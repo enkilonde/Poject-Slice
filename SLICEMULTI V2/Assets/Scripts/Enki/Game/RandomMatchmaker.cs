@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class RandomMatchmaker : MonoBehaviour {
 
@@ -56,8 +57,9 @@ public class RandomMatchmaker : MonoBehaviour {
 		_Player = PhotonNetwork.Instantiate ("Player", _position, Quaternion.identity, 0) as GameObject;
 		//GameObject Player = PhotonNetwork.Instantiate ("Player", new Vector3(0, 0, 0), Quaternion.identity, 0) as GameObject;
 
-		_Player.name = "Player " + PhotonNetwork.player.ID;
-		PhotonNetwork.player.name = _Player.name;
+		_Player.name = _LManager._PlayerName;
+		PhotonNetwork.player.name = _LManager._PlayerName;
+		_Player.transform.Find("PlayerName").Find("Text").GetComponent<Text>().text = _LManager._PlayerName;
 	
 		//_OManager._PhotonView.RPC ("updatePlayerList", PhotonTargets.All);
 

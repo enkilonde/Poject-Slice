@@ -31,6 +31,9 @@ public class LocalManager : MonoBehaviour
 	public Shader _ShaderPortalTransparent;
 	public Shader _ShaderPortalOpaque;
 
+
+	public string _PlayerName = "Player";
+
 	void Awake()
 	{
 

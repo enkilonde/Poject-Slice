@@ -85,12 +85,25 @@ public class PauseActions : MonoBehaviour
 				_OptionsContainer.transform.Find("ApplyResolution").gameObject.SetActive(true);
 			}
 
-
+			if (Application.loadedLevel == 0)
+			{
+				_LManager._PlayerName = _OptionsContainer.transform.Find("Name").Find("Text").GetComponent<Text>().text;
+			}
 		}
 
 
 	}
 
+	public void LoadScene()
+	{
+		Application.LoadLevel (Application.loadedLevel+1);
+	}
+	
+	
+	public void QuitGame()
+	{
+		Application.Quit ();
+	}
 
 	public void Quit()
 	{
@@ -112,6 +125,8 @@ public class PauseActions : MonoBehaviour
 		_Options = true;
 
 	}
+
+	
 
 	public void BackFromOption()
 	{
