@@ -48,6 +48,7 @@ public class Jump : MonoBehaviour {
 
 		transform.root.GetComponent<Rigidbody>().AddForce (0, _JumpHeight, 0, ForceMode.Impulse);
 		_TimerCooldown = 0.2f;
+		StartCoroutine (JumpReset ());
 	}
 
 

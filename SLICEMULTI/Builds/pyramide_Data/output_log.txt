@@ -16,7 +16,7 @@ Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\pyr
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\pyramide_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\pyramide_Data\Managed\Photon3Unity3D.dll (this message is harmless)
 Loading C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\pyramide_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.051 seconds
+- Completed reload, in  0.090 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,12 +24,12 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\pyramide_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI\Builds\pyramide_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.074946 ms
+UnloadTime: 4.886000 ms
 System memory in use before: 14.8 MB.
-System memory in use after: 14.8 MB.
+System memory in use after: 14.9 MB.
 
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 948.
-Total: 0.539778 ms (FindLiveObjects: 0.064381 ms CreateObjectMapping: 0.039188 ms MarkObjects: 0.429210 ms  DeleteObjects: 0.006064 ms)
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1132.
+Total: 0.581300 ms (FindLiveObjects: 0.078377 ms CreateObjectMapping: 0.042921 ms MarkObjects: 0.450670 ms  DeleteObjects: 0.007931 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -211,70 +211,27 @@ PhotonHandler:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2
  
 (Filename: C:/Users/EnkiBye/Documents/Poject-Slice/SLICEMULTI V2/Assets/Scripts/Enki/Game/RandomMatchmaker.cs Line: 52)
 
-True
+ttt
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:155)
+PortalLayerManager:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PortalLayerManager.cs:35)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-SWAP MOUSE
+ttt
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:188)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:156)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-False
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:155)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-True
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:155)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-YOU KILLED YOURSELF, NOOB
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:195)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:156)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-True
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:155)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
-
-YOU KILLED YOURSELF, NOOB
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-ignoreCollision:Fall(GameObject, GameObject, Boolean) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:195)
-ignoreCollision:OnTriggerExit(Collider) (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\ignoreCollision.cs:156)
+PortalLayerManager:Update() (at C:\Users\EnkiBye\Documents\Poject-Slice\SLICEMULTI V2\Assets\Scripts\Enki\Game\PortalLayerManager.cs:35)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.635198 ms
-System memory in use before: 33.0 MB.
-System memory in use after: 33.1 MB.
+UnloadTime: 1.745766 ms
+System memory in use before: 16.4 MB.
+System memory in use after: 16.5 MB.
 
-Unloading 84 unused Assets to reduce memory usage. Loaded Objects now: 616.
-Total: 0.771645 ms (FindLiveObjects: 0.041987 ms CreateObjectMapping: 0.038255 ms MarkObjects: 0.572436 ms  DeleteObjects: 0.118032 ms)
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 616.
+Total: 0.785175 ms (FindLiveObjects: 0.047119 ms CreateObjectMapping: 0.065781 ms MarkObjects: 0.555174 ms  DeleteObjects: 0.115700 ms)
 

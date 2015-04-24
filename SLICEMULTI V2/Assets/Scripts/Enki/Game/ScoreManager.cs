@@ -8,10 +8,16 @@ public class ScoreManager : MonoBehaviour
 	public int _LocalScore = 0;
 	public Text _ScoreText;
 
+	private PhotonView _PhotonView;
+
 	// Use this for initialization
 	void Start () 
 	{
-		_ScoreText = transform.Find ("Canvas").Find ("Score").GetComponent<Text> ();
+		_PhotonView = GetComponent<PhotonView> ();
+		if (_PhotonView.isMine) 
+		{
+			_ScoreText = transform.Find ("Canvas").Find ("Score").GetComponent<Text> ();
+		}
 
 
 	}
@@ -19,7 +25,11 @@ public class ScoreManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		_ScoreText.text = _LocalScore.ToString ();
+		if (_PhotonView.isMine) 
+		{
+			_ScoreText.text = _LocalScore.ToString ();
+
+		}
 
 
 	}

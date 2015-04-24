@@ -149,11 +149,11 @@ public class ignoreCollision : MonoBehaviour
 				}
 
 				//_coll.transform.position.y < transform.position.y+1 && transform.rotation.eulerAngles.y == 270 
-				if ((transform.rotation.eulerAngles.x <1 && transform.rotation.eulerAngles.x > -1) && (transform.rotation.eulerAngles.z < 1 && transform.rotation.eulerAngles.z > -1))
+				if ((transform.rotation.eulerAngles.x <1 && transform.rotation.eulerAngles.x > -1) && (transform.rotation.eulerAngles.z < 1 && transform.rotation.eulerAngles.z > -1) && _coll.transform.position.y < transform.position.y)
 				{
 					//_OnlineManager.Fall(_coll.gameObject, GetComponent<PortalIdentifier>()._Owner, _coll.transform.GetComponent<PlayerState>()._IsMouse);
-					print(_coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
 					Fall(_coll.gameObject, _OnlineManager.GetPlayerByID(GetComponent<PortalIdentifier>()._PlayerID), _coll.transform.GetComponent<NetworkCharacter>()._IsMouse);
+
 				}
 
 
@@ -188,6 +188,7 @@ public class ignoreCollision : MonoBehaviour
 				print("SWAP MOUSE");
 				_Killed.GetComponent<NetworkCharacter>().GetComponent<PhotonView>().RPC("SwapMouse", PhotonTargets.All, false);
 				_Killer.GetComponent<NetworkCharacter>().GetComponent<PhotonView>().RPC("SwapMouse", PhotonTargets.All, true);
+
 			}
 			
 		} else 

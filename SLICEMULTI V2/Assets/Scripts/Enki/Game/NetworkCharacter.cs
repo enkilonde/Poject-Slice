@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class NetworkCharacter : MonoBehaviour {
 
+	private PhotonView _PhotonView;
+
 	private Vector3 _position;
 	private Quaternion _rotation;
 	public float _LimiteTP = 5;
@@ -16,14 +18,18 @@ public class NetworkCharacter : MonoBehaviour {
 
 	public Material _NonMouse;
 	public Material _Mouse;
-
+	public int _MouseScoreMultiplier = 1;
+	public int _BaseScorePerSecond = 1;
 
 	public int _Score = 0;
 	private ScoreManager _Scrmanager;
 
 	// Use this for initialization
 	void Start () {
-		if (GetComponent<PhotonView> ().isMine == true) 
+
+		_PhotonView = GetComponent<PhotonView> ();
+
+		if (_PhotonView.isMine == true) 
 		{
 			GetComponent<move> ().enabled = true;
 			GetComponent<MouseLook> ().enabled = true;
@@ -33,14 +39,14 @@ public class NetworkCharacter : MonoBehaviour {
 			transform.Find ("Camera").GetComponent<MouseLook> ().enabled = true;
 			transform.Find ("FootCollider").gameObject.SetActive (true);
 			transform.Find ("Scripts").gameObject.SetActive (true);
-			_Scrmanager = GetComponent<ScoreManager>();
+
 		} else 
 		{
 
 
 		}
-
-		
+		_Scrmanager = GetComponent<ScoreManager>();
+		StartCoroutine (ScoreIncrement());
 	}
 	
 	// Update is called once per frame
@@ -66,7 +72,7 @@ public class NetworkCharacter : MonoBehaviour {
 			//_Smoothing *= 1.01f;
 		}
 
-		if (GetComponent<PhotonView> ().isMine == false) 
+		if (_PhotonView.isMine == false) 
 		{
 
 
@@ -84,9 +90,9 @@ public class NetworkCharacter : MonoBehaviour {
 		}
 
 
-		if (GetComponent<PhotonView> ().isMine) 
+		if (_PhotonView.isMine) 
 		{
-			_Scrmanager._LocalScore = _Score;
+
 			
 
 			
@@ -96,6 +102,8 @@ public class NetworkCharacter : MonoBehaviour {
 		if (_IsMouse) 
 		{
 			GetComponent<Renderer> ().material = _Mouse;
+
+
 		} else 
 		{
 			GetComponent<Renderer> ().material = _NonMouse;
@@ -103,13 +111,9 @@ public class NetworkCharacter : MonoBehaviour {
 
 
 
-		if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PhotonView> ().isMine)
-		{
-			_Score++;
 
 
-		}
-
+		_Scrmanager._LocalScore = _Score;
 	
 	}
 
@@ -142,6 +146,20 @@ public class NetworkCharacter : MonoBehaviour {
 		_IsMouse = mouse;
 
 
+	}
+
+
+	IEnumerator ScoreIncrement()
+	{
+		while (true) 
+		{
+			yield return new WaitForSeconds(1.0f);
+			if(_PhotonView.isMine && _IsMouse)
+			{
+				_Score += _BaseScorePerSecond * _MouseScoreMultiplier;
+			}
+
+		}
 	}
 
 

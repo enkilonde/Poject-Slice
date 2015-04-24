@@ -17,18 +17,29 @@ public class PortalLayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		List<int> indexesToRemove = new List<int> ();
-		for (int i = 0; i < _Portals.Count; i++) 
+
+		bool _test = true;
+		while (_test) 
 		{
-			if (!_Portals[i]._PortalGObject)
-				indexesToRemove.Add(i);
+			List<int> indexesToRemove = new List<int> ();
+			for (int i = 0; i < _Portals.Count; i++) 
+			{
+				if (!_Portals[i]._PortalGObject)
+					indexesToRemove.Add(i);
+				break;
+			}
+			
+			foreach(int r in indexesToRemove)
+			{
+				_Portals.RemoveAt(r);
+				print("ttt");
+			}
+			if (indexesToRemove.Count == 0)
+			{
+				_test = false;
+			}
 		}
 
-		foreach(int r in indexesToRemove)
-		{
-			_Portals.RemoveAt(r);
-
-		}
 
 	}
 
@@ -40,7 +51,7 @@ public class PortalLayerManager : MonoBehaviour {
 
 		for (int i = 0; i < _Portals.Count; i++) 
 		{
-			if (_Portals[i]._PortalGObject == _Go)
+			if (_Portals[i]._PortalGObject.transform.position == _Go.transform.position)
 				_PortalIndex = i;
 		}
 
