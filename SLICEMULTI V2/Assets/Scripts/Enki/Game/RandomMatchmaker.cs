@@ -60,7 +60,6 @@ public class RandomMatchmaker : MonoBehaviour {
 		_Player.name = _LManager._PlayerName;
 		PhotonNetwork.player.name = _LManager._PlayerName;
 		_Player.transform.Find("PlayerName").Find("Text").GetComponent<Text>().text = _LManager._PlayerName;
-	
 		//_OManager._PhotonView.RPC ("updatePlayerList", PhotonTargets.All);
 
 	}
