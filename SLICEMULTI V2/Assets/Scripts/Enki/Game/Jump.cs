@@ -11,6 +11,8 @@ public class Jump : MonoBehaviour {
 	public bool _Grounded = false;
 	private float _TimerCooldown = 0;
 
+	public bool _InWall = false;
+
 	private LocalManager _LManager;
 
 	void Awake()
@@ -58,6 +60,12 @@ public class Jump : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerStay(Collider coll){
+		if (coll.tag == "Ground") {
+			_Grounded = true;
+		}
+	}
+
 
 	IEnumerator JumpReset()
 	{
@@ -69,8 +77,14 @@ public class Jump : MonoBehaviour {
 
 
 	void OnTriggerExit(Collider coll){
-		if (coll.tag == "Ground") {
-			_Grounded = false;
+		if (coll.tag == "Ground" && !_InWall) 
+		{
+			if (!GetComponent<Collider>().bounds.Intersects(coll.bounds))
+			{
+				_Grounded = false;
+			}
+
+
 		}
 	}
 

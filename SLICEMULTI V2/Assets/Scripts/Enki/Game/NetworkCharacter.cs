@@ -23,6 +23,7 @@ public class NetworkCharacter : MonoBehaviour {
 
 	public int _Score = 0;
 	private ScoreManager _Scrmanager;
+	public float _FrequenceScore = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -153,7 +154,7 @@ public class NetworkCharacter : MonoBehaviour {
 	{
 		while (true) 
 		{
-			yield return new WaitForSeconds(1.0f);
+			yield return new WaitForSeconds(1/_FrequenceScore);
 			if(_PhotonView.isMine && _IsMouse)
 			{
 				_Score += _BaseScorePerSecond * _MouseScoreMultiplier;

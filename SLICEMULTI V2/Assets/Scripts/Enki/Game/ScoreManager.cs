@@ -8,6 +8,8 @@ public class ScoreManager : MonoBehaviour
 	public int _LocalScore = 0;
 	public Text _ScoreText;
 
+
+
 	private PhotonView _PhotonView;
 
 	// Use this for initialization

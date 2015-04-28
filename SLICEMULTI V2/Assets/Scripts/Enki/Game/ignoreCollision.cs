@@ -115,7 +115,7 @@ public class ignoreCollision : MonoBehaviour
 			if (!_coll.GetComponent<IsPlayerInPortal>()._InPortal)
 			{
 				_coll.GetComponent<IsPlayerInPortal>()._InPortal = true;
-
+				_coll.transform.Find("FootCollider").GetComponent<Jump>()._InWall = true;
 				for (int i = 0; i< twoWalls.Count; i++)
 				{
 					Physics.IgnoreCollision(_coll.GetComponent<Collider>(), twoWalls[i].GetComponent<Collider>(), true);
@@ -147,7 +147,7 @@ public class ignoreCollision : MonoBehaviour
 				{
 					Physics.IgnoreCollision (_coll.GetComponent<Collider> (), twoWalls [i].GetComponent<Collider> (), false);
 				}
-
+				_coll.transform.Find("FootCollider").GetComponent<Jump>()._InWall = false;
 				//_coll.transform.position.y < transform.position.y+1 && transform.rotation.eulerAngles.y == 270 
 				if ((transform.rotation.eulerAngles.x <1 && transform.rotation.eulerAngles.x > -1) && (transform.rotation.eulerAngles.z < 1 && transform.rotation.eulerAngles.z > -1) && _coll.transform.position.y < transform.position.y)
 				{

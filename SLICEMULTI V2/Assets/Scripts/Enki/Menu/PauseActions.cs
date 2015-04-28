@@ -7,14 +7,17 @@ public class PauseActions : MonoBehaviour
 {
 
 	public bool _Options = false;
+	public bool _RoomListVisible = false;
+
+	public bool _RoomCreation;
+
 	private float _Volume;
 
 	private LocalManager _LManager;
 
 	private GameObject _MainPauseContainer;
 	private GameObject _OptionsContainer;
-
-
+	private GameObject _RoomListContainer;
 
 	private int _ResolutionIndex = 0;
 
@@ -22,6 +25,7 @@ public class PauseActions : MonoBehaviour
 	private GameObject _ResolutionList;
 	private Resolution[] _Resolutions;
 	public GameObject _PrefabResolution;
+	public GameObject _PrefabRoom;
 
 	private string _FSText = "FullScreen";
 
@@ -34,9 +38,14 @@ public class PauseActions : MonoBehaviour
 		_ResolutionList = transform.parent.Find ("Options").Find ("Deroulant").Find ("Resolutions").gameObject;
 		_ResolutionList.SetActive (false);
 
-	}
+		if (Application.loadedLevel == 0) 
+		{
+			_RoomListContainer = transform.parent.Find("RoomList").gameObject;
+		}
 
-	// Use this for initialization
+
+	}
+	
 	void Start () 
 	{
 
@@ -44,6 +53,7 @@ public class PauseActions : MonoBehaviour
 		{
 			GameObject _Reso = Instantiate(_PrefabResolution, _ResolutionList.transform.position - new Vector3(0, i*28, 0), Quaternion.identity) as GameObject;
 			_Reso.transform.parent = _ResolutionList.transform;
+			_Reso.transform.localScale = new Vector3(1, 1, 1);
 			_Reso.transform.Find("Text").GetComponent<Text>().text = _Resolutions[i].width + "x" + _Resolutions[i].height;
 			_Reso.GetComponent<ResolutionIndex>()._ResolutionIndex = i;
 			_Reso.GetComponent<Button>().onClick.AddListener(delegate { ChangeResolution(_Reso); });
@@ -52,12 +62,14 @@ public class PauseActions : MonoBehaviour
 
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
-
+		if (Application.loadedLevel == 0) 
+		{
+			_RoomListContainer.SetActive (_RoomListVisible);
+		}
 		_OptionsContainer.SetActive (_Options);
-		_MainPauseContainer.SetActive (!_Options);
+		_MainPauseContainer.SetActive (!_Options && !_RoomListVisible);
 
 		if (_Options) 
 		{
@@ -70,6 +82,8 @@ public class PauseActions : MonoBehaviour
 			_ResolutionList.transform.parent.Find("Button").Find("Text").GetComponent<Text>().text = _Resolutions[_ResolutionIndex].width + "x" + _Resolutions[_ResolutionIndex].height;
 
 			_OptionsContainer.transform.Find("FullScreen").Find("Text").GetComponent<Text>().text = _FSText;
+
+
 
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
@@ -92,13 +106,38 @@ public class PauseActions : MonoBehaviour
 		}
 
 
+		if (_RoomListVisible) 
+		{
+			_RoomListContainer.transform.Find("RoomCreation").Find("Window").gameObject.SetActive(_RoomCreation);
+		}
+
+
 	}
 
 	public void LoadScene()
 	{
 		Application.LoadLevel (Application.loadedLevel+1);
 	}
-	
+
+	public void ShowRoomList()
+	{
+		_RoomListVisible = true;
+
+	}
+
+	public void HideRoomList()
+	{
+		_RoomListVisible = false;
+
+	}
+
+
+	public void CreateRoom()
+	{
+		_RoomCreation = true;
+	}
+
+
 	
 	public void QuitGame()
 	{
@@ -107,8 +146,9 @@ public class PauseActions : MonoBehaviour
 
 	public void Quit()
 	{
-		PhotonNetwork.Disconnect ();
+		//PhotonNetwork.Disconnect ();
 		Cursor.visible = true;
+		PhotonNetwork.LeaveRoom ();
 		Application.LoadLevel (0);
 	}
 

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class RandomMatchmaker : MonoBehaviour {
 
-	public string _RoomID = "Room";
+
 
 
 	private Vector3 _SpawnPosition;
@@ -20,7 +20,7 @@ public class RandomMatchmaker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PhotonNetwork.ConnectUsingSettings(_RoomID);
+
 		_OManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
 		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
 
@@ -35,6 +35,9 @@ public class RandomMatchmaker : MonoBehaviour {
 		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
 		//GUILayout.Label(PhotonNetwork.room.ToString());
 	}
+
+
+
 	
 	void OnJoinedLobby()
 	{
@@ -51,7 +54,7 @@ public class RandomMatchmaker : MonoBehaviour {
 	{
 		Debug.Log ("Room Joined");
 		Debug.Log (PhotonNetwork.room);
-
+		print ("room name : " + PhotonNetwork.room.name);
 		Vector3 _position = new Vector3 (_SpawnPosition.x + Random.Range(-_SpawnRandom, _SpawnRandom), _SpawnPosition.y, _SpawnPosition.z + Random.Range(-_SpawnRandom, _SpawnRandom));
 
 		_Player = PhotonNetwork.Instantiate ("Player", _position, Quaternion.identity, 0) as GameObject;
