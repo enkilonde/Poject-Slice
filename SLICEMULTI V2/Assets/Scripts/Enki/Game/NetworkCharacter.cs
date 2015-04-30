@@ -29,6 +29,8 @@ public class NetworkCharacter : MonoBehaviour {
 	private ScoreManager _Scrmanager;
 	public float _FrequenceScore = 0.5f;
 
+	public List<GameObject> _Players = new List<GameObject>();
+
 	// Use this for initialization
 	void Start () {
 
@@ -44,7 +46,7 @@ public class NetworkCharacter : MonoBehaviour {
 			transform.Find ("Camera").GetComponent<MouseLook> ().enabled = true;
 			transform.Find ("FootCollider").gameObject.SetActive (true);
 			transform.Find ("Scripts").gameObject.SetActive (true);
-
+			transform.Find("PlayerName").gameObject.SetActive(false);
 		} else 
 		{
 
@@ -52,6 +54,7 @@ public class NetworkCharacter : MonoBehaviour {
 		}
 		_Scrmanager = GetComponent<ScoreManager>();
 		StartCoroutine (ScoreIncrement());
+		StartCoroutine (UpdatePlayerList());
 	}
 	
 	// Update is called once per frame
@@ -119,7 +122,28 @@ public class NetworkCharacter : MonoBehaviour {
 
 
 		_Scrmanager._LocalScore = _Score;
-	
+		
+
+
+		transform.Find ("PlayerName").Find ("Text").GetComponent<Text> ().text = _PlayerName;
+
+
+
+		if (_PhotonView.isMine) 
+		{
+			foreach (GameObject _Playe in _Players) 
+			{
+				if (_Playe != this.gameObject)
+				{
+					_Playe.transform.Find("PlayerName").transform.LookAt(transform.position);
+				}
+				
+			}
+		}
+
+
+
+
 	}
 
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -176,7 +200,7 @@ public class NetworkCharacter : MonoBehaviour {
 	
 	void OnPhotonPlayerConnected(PhotonPlayer player)
 	{
-		transform.Find ("PlayerName").Find ("Text").GetComponent<Text> ().text = _PlayerName;
+
 	}
 
 
@@ -188,6 +212,21 @@ public class NetworkCharacter : MonoBehaviour {
 
 	}
 
+
+	IEnumerator UpdatePlayerList()
+	{
+		while (true) 
+		{
+			yield return new WaitForSeconds (3.0f);
+			GameObject[] _g = GameObject.FindGameObjectsWithTag ("Player");
+			foreach(GameObject _gg in _g)
+			{
+				_Players.Add(_gg);
+			}
+		}
+
+
+	}
 
 
 
