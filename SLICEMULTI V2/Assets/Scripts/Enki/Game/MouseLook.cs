@@ -34,6 +34,8 @@ public class MouseLook : MonoBehaviour {
 
 	private LocalManager _LManager;
 
+	private float _sensiModifier = 0.6f;
+
 
 	void Awake()
 	{
@@ -47,7 +49,7 @@ public class MouseLook : MonoBehaviour {
 		if (!_LManager._IsPaused) 
 		{
 			if (axes == RotationAxes.MouseXAndY) {
-					float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX * _LManager._Sensibility;
+					float rotationX = transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX * _LManager._Sensibility * _sensiModifier;
 
 					rotationY += Input.GetAxis ("Mouse Y") * sensitivityY * _LManager._Sensibility;
 					rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);

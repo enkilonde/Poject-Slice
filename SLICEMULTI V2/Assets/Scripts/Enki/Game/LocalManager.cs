@@ -39,13 +39,7 @@ public class LocalManager : MonoBehaviour
 
 		DontDestroyOnLoad (this.gameObject);
 
-		if (_Manager == null) 
-		{
-				_Manager = this;
-		} else 
-		{
-			Destroy(this.gameObject);
-		}
+
 
 		_ShaderPortalOpaque = Shader.Find ("Diffuse");
 	}
@@ -56,7 +50,7 @@ public class LocalManager : MonoBehaviour
 
 		_resolutions = Screen.resolutions;
 		_ResolutionIndex = _resolutions.Length - 1;
-		Screen.SetResolution(_resolutions[_ResolutionIndex].width, _resolutions[_ResolutionIndex].height, true);
+		Screen.SetResolution(_resolutions[_ResolutionIndex].width, _resolutions[_ResolutionIndex].height, _Fullscreen);
 		
 		
 		
@@ -66,11 +60,19 @@ public class LocalManager : MonoBehaviour
 	void OnLevelWasLoaded(int level) 
 	{
 
+
+		if (_Manager == null) 
+		{
+			_Manager = this;
+		} else 
+		{
+			Destroy(this.gameObject);
+		}
+
 		Cursor.visible = false;
 		
-		_resolutions = Screen.resolutions;
-		_ResolutionIndex = _resolutions.Length - 1;
-		Screen.SetResolution(_resolutions[_ResolutionIndex].width, _resolutions[_ResolutionIndex].height, true);
+		//_resolutions = Screen.resolutions;
+		//_ResolutionIndex = _resolutions.Length - 1;
 
 		switch (level) 
 		{

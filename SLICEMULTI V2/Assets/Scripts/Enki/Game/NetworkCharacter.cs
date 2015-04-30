@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 public class NetworkCharacter : MonoBehaviour {
 
 	private PhotonView _PhotonView;
+
+	public string _PlayerName;
 
 	private Vector3 _position;
 	private Quaternion _rotation;
@@ -23,7 +27,7 @@ public class NetworkCharacter : MonoBehaviour {
 
 	public int _Score = 0;
 	private ScoreManager _Scrmanager;
-	public float _FrequenceScore = 1;
+	public float _FrequenceScore = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -127,6 +131,8 @@ public class NetworkCharacter : MonoBehaviour {
 			stream.SendNext(transform.rotation);
 			stream.SendNext(_IsMouse);
 			stream.SendNext(_Score);
+
+			stream.SendNext(_PlayerName);
 		}
 		else
 		{
@@ -135,6 +141,8 @@ public class NetworkCharacter : MonoBehaviour {
 			_rotation = (Quaternion) stream.ReceiveNext();
 			_IsMouse = (bool) stream.ReceiveNext();
 			_Score = (int) stream.ReceiveNext();
+
+			_PlayerName = (string) stream.ReceiveNext();
 		}
 	}
 
@@ -162,6 +170,24 @@ public class NetworkCharacter : MonoBehaviour {
 
 		}
 	}
+
+
+
+	
+	void OnPhotonPlayerConnected(PhotonPlayer player)
+	{
+		transform.Find ("PlayerName").Find ("Text").GetComponent<Text> ().text = _PlayerName;
+	}
+
+
+	[RPC]
+	public void SetPlayerName(string _name)
+	{
+		transform.Find("PlayerName").Find("Text").GetComponent<Text>().text = _name;
+		print ("set name");
+
+	}
+
 
 
 

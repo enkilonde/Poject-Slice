@@ -95,6 +95,9 @@ public class OnlineManager : MonoBehaviour
 		print ("player " + player.ID + "Connected");
 		_NumberOfPlayers = PhotonNetwork.playerList.Length;
 
+
+
+
 	}
 
 
@@ -114,6 +117,7 @@ public class OnlineManager : MonoBehaviour
 		foreach (GameObject player in PL) 
 		{
 			_Players.Add(player);
+
 		}
 
 		if (_Players.Count == 1) 
@@ -121,6 +125,9 @@ public class OnlineManager : MonoBehaviour
 			_Players[0].GetComponent<NetworkCharacter>()._IsMouse = true;
 
 		}
+
+
+
 
 	}
 
@@ -132,6 +139,8 @@ public class OnlineManager : MonoBehaviour
 			yield return new WaitForSeconds (2);
 			_PhotonView.RPC ("updatePlayerList", PhotonTargets.All);
 		}
+
+
 
 	}
 

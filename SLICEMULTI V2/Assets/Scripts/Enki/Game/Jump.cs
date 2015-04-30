@@ -4,6 +4,7 @@ using System.Collections;
 
 
 
+
 public class Jump : MonoBehaviour {
 
 	public float _JumpHeight = 10;
@@ -50,18 +51,15 @@ public class Jump : MonoBehaviour {
 
 		transform.root.GetComponent<Rigidbody>().AddForce (0, _JumpHeight, 0, ForceMode.Impulse);
 		_TimerCooldown = 0.2f;
+		_Grounded = false;
 		//StartCoroutine (JumpReset ());
 	}
 
 
-	void OnTriggerEnter(Collider coll){
-		if (coll.tag == "Ground") {
-			_Grounded = true;
-		}
-	}
+
 
 	void OnTriggerStay(Collider coll){
-		if (coll.tag == "Ground") {
+		if (coll.tag == "Ground" && !_InWall && _TimerCooldown <= 0) {
 			_Grounded = true;
 		}
 	}
@@ -77,7 +75,7 @@ public class Jump : MonoBehaviour {
 
 
 	void OnTriggerExit(Collider coll){
-		if (coll.tag == "Ground" && !_InWall) 
+		if (coll.tag == "Ground" && !_InWall && _TimerCooldown <= 0) 
 		{
 			if (!GetComponent<Collider>().bounds.Intersects(coll.bounds))
 			{
