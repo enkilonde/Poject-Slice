@@ -13,7 +13,7 @@ public class PauseActions : MonoBehaviour
 
 	private float _Volume;
 
-	private LocalManager _LManager;
+	public LocalManager _LManager;
 
 	private GameObject _MainPauseContainer;
 	private GameObject _OptionsContainer;
@@ -64,6 +64,13 @@ public class PauseActions : MonoBehaviour
 	
 	void Update () 
 	{
+
+		if (_LManager == null) 
+		{
+			_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
+		}
+
+
 		if (Application.loadedLevel == 0) 
 		{
 			_RoomListContainer.SetActive (_RoomListVisible);
@@ -154,6 +161,7 @@ public class PauseActions : MonoBehaviour
 
 	public void Resume()
 	{
+
 		StartCoroutine (ResumeGame ());
 	}
 

@@ -46,6 +46,21 @@ public class OnlineManager : MonoBehaviour
 			//_LManager._IsMouse = true;
 		}
 
+		/*
+		foreach(GameObject _play in _Players)
+		{
+			foreach(GameObject _OtherPlayer in _Players)
+			{
+				if (_OtherPlayer != _play)
+				{
+					_OtherPlayer.transform.Find("PlayerName").LookAt(_play.transform.position);
+				}
+			}
+
+		}
+*/
+
+
 
 	}
 
