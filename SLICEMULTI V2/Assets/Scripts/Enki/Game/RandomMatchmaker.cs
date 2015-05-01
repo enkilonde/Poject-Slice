@@ -54,7 +54,7 @@ public class RandomMatchmaker : MonoBehaviour {
 	{
 		Debug.Log ("Room Joined");
 		Debug.Log (PhotonNetwork.room);
-		print ("room name : " + PhotonNetwork.room.name);
+
 		Vector3 _position = new Vector3 (_SpawnPosition.x + Random.Range(-_SpawnRandom, _SpawnRandom), _SpawnPosition.y, _SpawnPosition.z + Random.Range(-_SpawnRandom, _SpawnRandom));
 
 		_Player = PhotonNetwork.Instantiate ("Player", _position, Quaternion.identity, 0) as GameObject;
