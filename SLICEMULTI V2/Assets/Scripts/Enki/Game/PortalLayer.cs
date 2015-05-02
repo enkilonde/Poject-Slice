@@ -17,6 +17,8 @@ public class PortalLayer : MonoBehaviour {
 
 	private PortalLayerManager _manager;
 
+	public Color _FireColor;
+
 	// Use this for initialization
 	void Start () {
 
@@ -41,6 +43,9 @@ public class PortalLayer : MonoBehaviour {
 
 		}
 
+
+		GetComponent<PhotonView> ().RPC ("SetFireColor", PhotonTargets.All);
+		//transform.Find ("FireParticle").GetComponent<ParticleSystem> ().startColor = _FireColor;
 	}
 	
 	void Update () 
@@ -81,6 +86,16 @@ public class PortalLayer : MonoBehaviour {
 		root.gameObject.layer = layer;
 		foreach(Transform child in root)
 			MoveToLayer(child, layer);
+	}
+
+
+
+	[RPC]
+	public void SetFireColor()
+	{
+
+		transform.Find ("FireParticle").GetComponent<ParticleSystem> ().startColor = _FireColor;
+		//transform.Find ("FireParticle").GetComponent<ParticleSystem> ().Play ();
 	}
 
 

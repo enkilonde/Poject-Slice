@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class NetworkCharacter : MonoBehaviour {
 
+
+	public enum PlayerColor{Yellow, Red, Green, Purple};
+
+	public PlayerColor _PlayerColor;
+
 	private PhotonView _PhotonView;
 
 	public string _PlayerName;
@@ -19,9 +24,17 @@ public class NetworkCharacter : MonoBehaviour {
 	private float _TPLim = 0;
 
 	public bool _IsMouse = false;
+	
 
-	public Material _NonMouse;
-	public Material _Mouse;
+	
+	public bool _Yellow = false;
+	public bool _Red = false;
+	public bool _Purple = false;
+	public bool _Green = false;
+
+
+
+
 	public int _MouseScoreMultiplier = 1;
 	public int _BaseScorePerSecond = 1;
 
@@ -29,12 +42,17 @@ public class NetworkCharacter : MonoBehaviour {
 	private ScoreManager _Scrmanager;
 	public float _FrequenceScore = 0.5f;
 
+
+
 	public List<GameObject> _Players = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
 
 		_PhotonView = GetComponent<PhotonView> ();
+
+		SetColor ();
+
 
 		if (_PhotonView.isMine == true) 
 		{
@@ -47,14 +65,55 @@ public class NetworkCharacter : MonoBehaviour {
 			transform.Find ("FootCollider").gameObject.SetActive (true);
 			transform.Find ("Scripts").gameObject.SetActive (true);
 			transform.Find("PlayerName").gameObject.SetActive(false);
+
+
+
+
+
+
+
 		} else 
 		{
+	
 
 
 		}
+
+		Color _plcolor = transform.Find("Character Mesh").Find("MainBody").GetComponent<Renderer>().material.color;
+		if (_PlayerColor == PlayerColor.Green)
+		{
+			_plcolor.r = 191.0f / 255.0f;
+			_plcolor.g = 83.0f / 255.0f;
+			_plcolor.b = 73.0f / 255.0f;
+		}
+		else if (_PlayerColor == PlayerColor.Purple)
+		{
+			_plcolor.r = 191.0f / 255.0f;
+			_plcolor.g = 122.0f / 255.0f;
+			_plcolor.b = 200.0f / 255.0f;
+			
+		}else if(_PlayerColor == PlayerColor.Red)
+		{
+			_plcolor.r = 134.0f / 255.0f;
+			_plcolor.g = 170.0f / 255.0f;
+			_plcolor.b = 115.0f / 255.0f;
+			
+		}
+		else if(_PlayerColor == PlayerColor.Yellow)
+		{
+			_plcolor.r = 149.0f / 255.0f;
+			_plcolor.g = 147.0f / 255.0f;
+			_plcolor.b = 93.0f / 255.0f;
+			print(_plcolor);
+		}
+		transform.Find("Character Mesh").Find("MainBody").GetComponent<Renderer>().material.color = _plcolor;
+
+
+
 		_Scrmanager = GetComponent<ScoreManager>();
 		StartCoroutine (ScoreIncrement());
 		StartCoroutine (UpdatePlayerList());
+
 	}
 	
 	// Update is called once per frame
@@ -80,7 +139,7 @@ public class NetworkCharacter : MonoBehaviour {
 			//_Smoothing *= 1.01f;
 		}
 
-		if (_PhotonView.isMine == false) 
+		if (!_PhotonView.isMine) 
 		{
 
 
@@ -93,7 +152,9 @@ public class NetworkCharacter : MonoBehaviour {
 				_TPAmount++;
 			}
 			transform.rotation = Quaternion.Slerp(transform.rotation, _rotation, Time.deltaTime / _Smoothing);
-		
+			
+
+
 
 		}
 
@@ -107,6 +168,10 @@ public class NetworkCharacter : MonoBehaviour {
 		}
 
 
+
+
+
+		/*
 		if (_IsMouse) 
 		{
 			GetComponent<Renderer> ().material = _Mouse;
@@ -116,7 +181,7 @@ public class NetworkCharacter : MonoBehaviour {
 		{
 			GetComponent<Renderer> ().material = _NonMouse;
 		}
-
+		*/
 
 
 
@@ -217,17 +282,78 @@ public class NetworkCharacter : MonoBehaviour {
 	{
 		while (true) 
 		{
+			UpdatePlayerList2();
 			yield return new WaitForSeconds (3.0f);
-			GameObject[] _g = GameObject.FindGameObjectsWithTag ("Player");
-			foreach(GameObject _gg in _g)
-			{
-				_Players.Add(_gg);
-			}
 		}
 
 
 	}
 
+
+	void UpdatePlayerList2()
+	{
+
+		GameObject[] _g = GameObject.FindGameObjectsWithTag ("Player");
+		foreach(GameObject _gg in _g)
+		{
+			_Players.Add(_gg);
+
+					_gg.GetComponent<PhotonView>().RPC("SynchroniseColor", PhotonTargets.All, _PlayerColor.ToString());
+
+			switch(_gg.GetComponent<NetworkCharacter>()._PlayerColor)
+			{
+			case PlayerColor.Green : _Green = true; break;
+			case PlayerColor.Yellow : _Yellow = true; break;
+			case PlayerColor.Red : _Red = true; break;
+			case PlayerColor.Purple : _Purple = true; break;
+			default : break;
+			}
+			
+		}
+
+
+	}
+
+
+	public void SetColor ()
+	{
+
+		UpdatePlayerList2 ();
+
+		if (!_Green) 
+		{
+			_PlayerColor = PlayerColor.Green;
+		}
+
+		if (!_Yellow) 
+		{
+			_PlayerColor = PlayerColor.Yellow;
+		}
+
+		if (!_Red) 
+		{
+			_PlayerColor = PlayerColor.Red;
+		}
+
+		if (!_Purple) 
+		{
+			_PlayerColor = PlayerColor.Purple;
+		}
+
+	}
+
+
+
+
+	[RPC]
+	public void SynchroniseColor(string _col)
+	{
+		print (_col);
+		_PlayerColor = (PlayerColor) System.Enum.Parse (typeof(PlayerColor), _col);
+		
+	}
+
+	
 
 
 }

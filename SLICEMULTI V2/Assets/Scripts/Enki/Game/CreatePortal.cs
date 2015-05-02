@@ -26,10 +26,19 @@ public class CreatePortal : MonoBehaviour {
 
 	private OnlineManager _OManager;
 
+	private NetworkCharacter _NCharacter;
+
+	public Color _YellowGradient;
+	public Color _RedGradient;
+	public Color _PurpleGradient;
+	public Color _GreenGradient;
+
+
 	void Awake()
 	{
 		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
 		_OManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();
+		_NCharacter = GetComponent<NetworkCharacter> ();
 	}
 
 	// Use this for initialization
@@ -87,6 +96,18 @@ public class CreatePortal : MonoBehaviour {
 		_portal.GetComponent<PortalIdentifier> ()._PlayerID = _PLayerID;
 		_portal.GetComponent<PhotonView> ().RPC ("SetID", PhotonTargets.All, _PLayerID);
 		_portal.GetComponent<PortalIdentifier> ()._OwnerIndex = _OManager._Players.IndexOf (this.gameObject);
+
+		switch (_NCharacter._PlayerColor) 
+		{
+		case NetworkCharacter.PlayerColor.Green : _portal.GetComponent<PortalLayer> ()._FireColor = _GreenGradient; break;
+		case NetworkCharacter.PlayerColor.Yellow : _portal.GetComponent<PortalLayer> ()._FireColor = _YellowGradient; break;
+		case NetworkCharacter.PlayerColor.Red : _portal.GetComponent<PortalLayer> ()._FireColor = _RedGradient; break;
+		case NetworkCharacter.PlayerColor.Purple : _portal.GetComponent<PortalLayer> ()._FireColor = _PurpleGradient; break;
+		default : break;
+
+
+		}
+
 
 
 		//print (_PLayerID);

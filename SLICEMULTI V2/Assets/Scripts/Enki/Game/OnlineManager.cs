@@ -7,6 +7,8 @@ public class OnlineManager : MonoBehaviour
 	public static OnlineManager _OManager;
 
 
+
+
 	public int _NumberOfPlayers;
 	public int _NumberOfMouse = 0;
 
@@ -175,6 +177,12 @@ public class OnlineManager : MonoBehaviour
 		return null;
 
 	}
+
+
+
+
+
+
 
 
 }
