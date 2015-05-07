@@ -106,7 +106,7 @@ public class PauseActions : MonoBehaviour
 				_OptionsContainer.transform.Find("ApplyResolution").gameObject.SetActive(true);
 			}
 
-			if (Application.loadedLevel == 0)
+			if (Application.loadedLevel == 0 && _OptionsContainer.transform.Find("Name").Find("Text").GetComponent<Text>().text.Length > 0)
 			{
 				_LManager._PlayerName = _OptionsContainer.transform.Find("Name").Find("Text").GetComponent<Text>().text;
 			}

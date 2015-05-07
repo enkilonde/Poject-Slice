@@ -79,7 +79,9 @@ public class OnlineManager : MonoBehaviour
 			{
 				print("SWAP MOUSE");
 				_Killed.GetComponent<NetworkCharacter>()._IsMouse = false;
+
 				_Killer.GetComponent<NetworkCharacter>()._IsMouse = true;
+
 			}
 
 		} else 
@@ -140,6 +142,7 @@ public class OnlineManager : MonoBehaviour
 		if (_Players.Count == 1) 
 		{
 			_Players[0].GetComponent<NetworkCharacter>()._IsMouse = true;
+			_Players[0].GetComponent<PhotonView>().RPC("ActivateAura", PhotonTargets.All, true);
 
 		}
 

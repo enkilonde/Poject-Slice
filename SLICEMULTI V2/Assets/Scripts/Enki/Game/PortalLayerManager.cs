@@ -97,11 +97,15 @@ public class PortalLayerManager : MonoBehaviour {
 			{
 				if (((_po._PortalGObject.transform.position.x <= pos.x + _margeD_erreur) && (_po._PortalGObject.transform.position.x >= pos.x - _margeD_erreur)) || ((_po._PortalGObject.transform.position.y <= pos.y + _margeD_erreur) && (_po._PortalGObject.transform.position.y >= pos.y - _margeD_erreur)) || ((_po._PortalGObject.transform.position.z <= pos.z + _margeD_erreur) && (_po._PortalGObject.transform.position.z >= pos.z - _margeD_erreur)))
 				{
+					/*
 					if (_po._PortalGObject.transform.position != pos && _po._Layer == _laye)
 					{
 						return _po._Layer;
-					}
-					
+					}*/
+
+
+
+
 				}
 			}
 

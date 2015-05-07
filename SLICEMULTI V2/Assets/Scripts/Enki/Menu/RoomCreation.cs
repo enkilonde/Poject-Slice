@@ -109,9 +109,11 @@ public class RoomCreation : MonoBehaviour {
 	public void CreateRoom()
 	{
 
-		PhotonNetwork.CreateRoom (_RoomName.text, true, true, 4);
+		PhotonNetwork.CreateRoom (_RoomName.text, true, true, 5);
 		print (_RoomName.text);
 		Application.LoadLevel (1);
+		_pauseAction._RoomListVisible = false;
+		_pauseAction._RoomCreation = false;
 	}
 
 	public void SelectRoom(string _ID)
@@ -138,6 +140,8 @@ public class RoomCreation : MonoBehaviour {
 	{
 		PhotonNetwork.JoinRoom (_SelectedRoom);
 		Application.LoadLevel (1);
+		_pauseAction._RoomListVisible = false;
+		_pauseAction._RoomCreation = false;
 	}
 
 }

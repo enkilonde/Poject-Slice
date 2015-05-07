@@ -6,7 +6,7 @@ public class PortalLayer : MonoBehaviour {
 	public int _Layer = 1;
 	public GameObject _CameraPrefab;
 	public GameObject _camera;
-	private GameObject _LocalPlayer;
+	public GameObject _LocalPlayer;
 
 
 	private Transform _PlayerMainCamera;
@@ -29,22 +29,39 @@ public class PortalLayer : MonoBehaviour {
 
 			_LocalPlayer = GameObject.Find ("Scripts").GetComponent<RandomMatchmaker> ()._Player;
 
-			_Layer = _manager.CheckLayer(_Layer);
 
-			_Layer = _manager.CheckIfOtherPortal(transform.position, _Layer);
-			
-			_manager.RegisterPortal(_Layer, this.gameObject);
+		} else 
+		{
 
-			_LM ^=(1<<_Layer);
-
-			GetComponent<ignoreCollision>().restoreLayer(_Layer);
-			MoveToLayer(transform, _Layer);
-			gameObject.layer = 10;
+			GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
+			foreach(GameObject _pl in _players)
+			{
+				if (_pl.GetComponent<PhotonView>().isMine)
+				{
+					_LocalPlayer = _pl;
+				}
+			}
 
 		}
 
 
-		GetComponent<PhotonView> ().RPC ("SetFireColor", PhotonTargets.All);
+		_Layer = _manager.CheckLayer (_Layer);
+		
+		_Layer = _manager.CheckIfOtherPortal (transform.position, _Layer);
+		
+		_manager.RegisterPortal (_Layer, this.gameObject);
+		
+		_LM ^= (1 << _Layer);
+		
+		GetComponent<ignoreCollision> ().restoreLayer (_Layer);
+		MoveToLayer (transform, _Layer);
+		gameObject.layer = 10;
+
+		if (GetComponent<PhotonView> ().isMine) 
+		{
+			GetComponent<PhotonView> ().RPC ("SetFireColor", PhotonTargets.All);
+		}
+
 		//transform.Find ("FireParticle").GetComponent<ParticleSystem> ().startColor = _FireColor;
 	}
 	
@@ -95,6 +112,7 @@ public class PortalLayer : MonoBehaviour {
 	{
 
 		transform.Find ("FireParticle").GetComponent<ParticleSystem> ().startColor = _FireColor;
+		transform.Find ("FireParticle 1").GetComponent<ParticleSystem> ().startColor = _FireColor;
 		//transform.Find ("FireParticle").GetComponent<ParticleSystem> ().Play ();
 	}
 

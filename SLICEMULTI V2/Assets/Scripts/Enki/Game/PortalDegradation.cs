@@ -17,11 +17,15 @@ public class PortalDegradation : MonoBehaviour {
 
 	private LocalManager _LManager;
 
+
+	private PortalLayerManager _PLManager;
+
 	// Use this for initialization
 	void Start () {
 		_localTransform = transform;
 		_PhotonView = GetComponent<PhotonView> ();
 		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
+		_PLManager = GameObject.Find ("Scripts").GetComponent<PortalLayerManager> ();
 
 
 		//_PhotonView.RPC("InstantiateCamera", PhotonTargets.All, _Size); 
@@ -60,11 +64,19 @@ public class PortalDegradation : MonoBehaviour {
 
 	}
 
-
 	public void DestroyPortal()
+	{
+		
+		GetComponent<PhotonView> ().RPC ("SetDestroyPortal", PhotonTargets.All);
+		
+		
+	}
+
+	public void DestroyPortalAll()
 	{
 
 		GetComponent<ignoreCollision>().SetWallQueue(2000);
+		_PLManager.removePortal (this.gameObject, GetComponent<PortalLayer> ()._Layer);
 		if (!GameObject.Find("Scripts").GetComponent<PortalLayerManager>().CheckIfOtherPortalBool(transform.position, GetComponent<PortalLayer>()._Layer))
 		{
 			//GetComponent<ignoreCollision>().SetWallQueue(2000);
@@ -72,12 +84,22 @@ public class PortalDegradation : MonoBehaviour {
 
 		}
 		Destroy(GetComponent<PortalLayer>()._camera);
+		GetComponent<ignoreCollision>().SetWallQueue(2000);
 		if (_PhotonView.isMine)
 		{
 			_LManager._PortalsContainer.Remove(this.gameObject);
 			PhotonNetwork.Destroy(this.gameObject);
 		}
 
+
+	}
+
+
+	[RPC]
+	public void SetDestroyPortal()
+	{
+
+		DestroyPortalAll ();
 
 	}
 

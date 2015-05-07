@@ -38,7 +38,13 @@ public class LocalManager : MonoBehaviour
 	{
 
 		DontDestroyOnLoad (this.gameObject);
-
+		if (_Manager == null) 
+		{
+			_Manager = this;
+		} else 
+		{
+			Destroy(this.gameObject);
+		}
 
 
 		_ShaderPortalOpaque = Shader.Find ("Diffuse");
@@ -59,15 +65,9 @@ public class LocalManager : MonoBehaviour
 
 	void OnLevelWasLoaded(int level) 
 	{
-
-
-		if (_Manager == null) 
-		{
-			_Manager = this;
-		} else 
-		{
-			Destroy(this.gameObject);
-		}
+		DontDestroyOnLoad (this.gameObject);
+		_PortalsContainer = new List<GameObject> ();
+		_IsMouse = false;
 
 		Cursor.visible = false;
 		
@@ -108,7 +108,7 @@ public class LocalManager : MonoBehaviour
 		{
 
 			_PortalsContainer[0].GetComponent<PortalDegradation>().DestroyPortal();
-
+			print("DESTROY");
 		}
 
 
