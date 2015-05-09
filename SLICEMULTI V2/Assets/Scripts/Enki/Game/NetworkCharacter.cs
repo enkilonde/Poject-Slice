@@ -69,7 +69,7 @@ public class NetworkCharacter : MonoBehaviour {
 			transform.Find ("Scripts").gameObject.SetActive (true);
 			transform.Find("PlayerName").gameObject.SetActive(false);
 			//transform.Find("CharacterMesh").gameObject.SetActive(false);
-
+			transform.Find("Character Mesh").gameObject.SetActive(false);
 
 
 
