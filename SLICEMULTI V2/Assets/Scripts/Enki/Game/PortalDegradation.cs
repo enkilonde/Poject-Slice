@@ -76,7 +76,7 @@ public class PortalDegradation : MonoBehaviour {
 	{
 
 		GetComponent<ignoreCollision>().SetWallQueue(2000);
-		_PLManager.removePortal (this.gameObject, GetComponent<PortalLayer> ()._Layer);
+		_PLManager.removePortal (transform.position, GetComponent<PortalLayer> ()._Layer);
 		if (!GameObject.Find("Scripts").GetComponent<PortalLayerManager>().CheckIfOtherPortalBool(transform.position, GetComponent<PortalLayer>()._Layer))
 		{
 			//GetComponent<ignoreCollision>().SetWallQueue(2000);

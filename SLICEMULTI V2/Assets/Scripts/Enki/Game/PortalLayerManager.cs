@@ -44,14 +44,14 @@ public class PortalLayerManager : MonoBehaviour {
 	}
 
 
-	public void removePortal(GameObject _Go, int _layer)
+	public void removePortal(Vector3 _GoPos, int _layer)
 	{
 
 		int _PortalIndex = 0;
 
 		for (int i = 0; i < _Portals.Count; i++) 
 		{
-			if (_Portals[i]._PortalGObject.transform.position == _Go.transform.position)
+			if (_Portals[i]._PortalGObject.transform.position == _GoPos)
 				_PortalIndex = i;
 		}
 
