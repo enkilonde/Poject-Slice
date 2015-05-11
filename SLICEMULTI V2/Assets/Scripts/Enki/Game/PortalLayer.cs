@@ -53,9 +53,9 @@ public class PortalLayer : MonoBehaviour {
 		
 		_LM ^= (1 << _Layer);
 		
-		GetComponent<ignoreCollision> ().restoreLayer (_Layer);
-		MoveToLayer (transform, _Layer);
-		gameObject.layer = 10;
+		//GetComponent<ignoreCollision> ().restoreLayer (_Layer);
+		//MoveToLayer (transform, _Layer);
+		//gameObject.layer = 10;
 
 		if (GetComponent<PhotonView> ().isMine) 
 		{
@@ -81,7 +81,8 @@ public class PortalLayer : MonoBehaviour {
 					GetComponent<ignoreCollision> ()._WallActivated = true;
 				} else 
 				{
-					if (!_manager.CheckIfOtherPortalBool(transform.position, _Layer))
+					//print(GetComponent<ignoreCollision>().twoWalls[0].transform.position);
+					if (!_manager.CheckIfOtherPortalBool(transform.position, GetComponent<ignoreCollision>().twoWalls[0].transform.position))
 					{
 						GetComponent<ignoreCollision> ()._WallActivated = false;
 					}

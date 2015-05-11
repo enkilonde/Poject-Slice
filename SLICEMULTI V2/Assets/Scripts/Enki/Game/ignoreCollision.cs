@@ -42,7 +42,7 @@ public class ignoreCollision : MonoBehaviour
 			if (obj.tag == "Ground")
 			{
 				twoWalls.Add(obj.gameObject);
-				obj.gameObject.layer = _layer;
+				//obj.gameObject.layer = _layer;
 				obj.gameObject.GetComponent<Renderer>().material.renderQueue = 2020;
 			}
 		}

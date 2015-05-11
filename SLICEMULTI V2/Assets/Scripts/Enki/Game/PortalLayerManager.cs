@@ -46,7 +46,7 @@ public class PortalLayerManager : MonoBehaviour {
 
 	public void removePortal(Vector3 _GoPos, int _layer)
 	{
-
+		print ("Debug Remove Portal      " + _GoPos);
 		int _PortalIndex = 0;
 
 		for (int i = 0; i < _Portals.Count; i++) 
@@ -114,18 +114,22 @@ public class PortalLayerManager : MonoBehaviour {
 	}
 
 
-	public bool CheckIfOtherPortalBool(Vector3 pos, int _Layer)
+	public bool CheckIfOtherPortalBool(Vector3 pos, Vector3 wallPos)
 	{
 
-		foreach (Portal _po in _Portals) 
+		GameObject[] _PortalsList = GameObject.FindGameObjectsWithTag ("Portal");
+		
+		foreach (GameObject _po in _PortalsList) 
 		{
-			if (_po._PortalGObject)
+			Vector3 _PoPos = _po.transform.position;
+			if (_po)
 			{
-				if (((_po._PortalGObject.transform.position.x <= pos.x + _margeD_erreur) && (_po._PortalGObject.transform.position.x >= pos.x - _margeD_erreur)) || ((_po._PortalGObject.transform.position.y <= pos.y + _margeD_erreur) && (_po._PortalGObject.transform.position.y >= pos.y - _margeD_erreur)) || ((_po._PortalGObject.transform.position.z <= pos.z + _margeD_erreur) && (_po._PortalGObject.transform.position.z >= pos.z - _margeD_erreur)))
+				if (((_PoPos.x <= pos.x + _margeD_erreur) && (_PoPos.x >= pos.x - _margeD_erreur)) || ((_PoPos.y <= pos.y + _margeD_erreur) && (_PoPos.y >= pos.y - _margeD_erreur)) || ((_PoPos.z <= pos.z + _margeD_erreur) && (_PoPos.z >= pos.z - _margeD_erreur)))
 				{
-					if (_po._PortalGObject.transform.position != pos && _po._Layer == _Layer)
+					//print("WallPos   " + wallPos);
+					//print("WallPos2   " + _po.GetComponent<ignoreCollision>().twoWalls[0].transform.position);
+					if (_po.transform.position != pos && ( _po.GetComponent<ignoreCollision>().twoWalls[0].transform.position ==  wallPos))
 					{
-						print("TRUE");
 						return true;
 						
 					}
