@@ -16,9 +16,12 @@ public class Jump : MonoBehaviour {
 
 	private LocalManager _LManager;
 
+	private CharacterControls _CControls;
+
 	void Awake()
 	{
 		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager> ();
+		_CControls = transform.parent.GetComponent<CharacterControls> ();
 	}
 
 	// Use this for initialization
@@ -28,7 +31,7 @@ public class Jump : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		if (!_LManager._IsPaused) 
 		{
@@ -37,13 +40,13 @@ public class Jump : MonoBehaviour {
 			
 			if (Input.GetKey (KeyCode.Space) && _Grounded && _TimerCooldown<=0) 
 			{
-				Jumping();
+				//Jumping();
 			}
 
 
 		}
 
-	
+		//_CControls.canJump = _Grounded;
 	}
 
 

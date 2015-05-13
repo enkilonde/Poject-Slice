@@ -28,7 +28,7 @@ public class ignoreCollision : MonoBehaviour
 	private GameObject _PortalTexture;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 
 		_OnlineManager = GameObject.Find ("OnlineManager").GetComponent<OnlineManager> ();

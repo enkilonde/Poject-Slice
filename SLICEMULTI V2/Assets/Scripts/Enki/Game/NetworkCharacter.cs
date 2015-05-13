@@ -59,7 +59,7 @@ public class NetworkCharacter : MonoBehaviour {
 
 		if (_PhotonView.isMine == true) 
 		{
-			GetComponent<move> ().enabled = true;
+			GetComponent<CharacterControls> ().enabled = true;
 			GetComponent<MouseLook> ().enabled = true;
 			GetComponent<CreatePortal> ().enabled = true;
 			transform.Find ("Camera").GetComponent<Camera> ().enabled = true;
