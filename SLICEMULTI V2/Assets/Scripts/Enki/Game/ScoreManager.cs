@@ -44,12 +44,12 @@ public class ScoreManager : MonoBehaviour
 		{
 			_ScoreText.text = _LocalScore.ToString ();
 
-			switch (_NCharacter._PlayerColor) 
+   			switch (_NCharacter._Equipe) 
 			{
-				case NetworkCharacter.PlayerColor.Green : _ScoreCadre.sprite = _MouseGreen; break;
-				case NetworkCharacter.PlayerColor.Red : _ScoreCadre.sprite = _MouseRed; break;
-				case NetworkCharacter.PlayerColor.Yellow : _ScoreCadre.sprite = _MouseYellow; break;
-				case NetworkCharacter.PlayerColor.Purple : _ScoreCadre.sprite = _MousePurple; break;
+			case LocalManager.Equipe.Green : _ScoreCadre.sprite = _MouseGreen; break;
+			case LocalManager.Equipe.Red : _ScoreCadre.sprite = _MouseRed; break;
+			case LocalManager.Equipe.Yellow : _ScoreCadre.sprite = _MouseYellow; break;
+			case LocalManager.Equipe.Blue : _ScoreCadre.sprite = _MousePurple; break;
 			}
 
 

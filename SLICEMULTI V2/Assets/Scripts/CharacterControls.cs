@@ -14,11 +14,14 @@ public class CharacterControls : MonoBehaviour {
 	public float jumpHeight = 2.0f;
 	public float _JumpTime = 1;
 	public float _MaxJumpTime = 2;
-	
+
+	public PhotonView _PhotonView;
+	public SoundBehaviour _Saut;
 	
 	void Awake () {
 		GetComponent<Rigidbody>().freezeRotation = true;
 		GetComponent<Rigidbody>().useGravity = false;
+		_PhotonView = GetComponent<PhotonView> ();
 	}
 
 	void Update()
@@ -72,6 +75,7 @@ public class CharacterControls : MonoBehaviour {
 				GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
 				_Jumping = true;
 				//StartCoroutine(EndJump());
+				_PhotonView.RPC("PlaySaut", PhotonTargets.All);
 			}
 		}
 		
@@ -96,6 +100,15 @@ public class CharacterControls : MonoBehaviour {
 
 	}
 
+
+
+	[RPC]
+	public void PlaySaut()
+	{
+
+		_Saut.PlaySound ();
+
+	}
 
 
 

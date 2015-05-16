@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 public class LocalManager : MonoBehaviour 
 {
+
+	public enum Equipe {Red, Green, Blue, Yellow};
 
 
 	public Vector3 _SpawnPosition = Vector3.zero;
@@ -30,6 +34,8 @@ public class LocalManager : MonoBehaviour
 
 	public Shader _ShaderPortalTransparent;
 	public Shader _ShaderPortalOpaque;
+
+	public GameObject _CentralDisplayPrefab;
 
 
 	public string _PlayerName = "Player";
@@ -122,6 +128,17 @@ public class LocalManager : MonoBehaviour
 		Screen.SetResolution(_resolutions[_ResolutionIndex].width, _resolutions[_ResolutionIndex].height, _Fullscreen);
 
 	}
+
+
+	public void SendCentralMessageMouse(string txt)
+	{
+
+		GameObject CTXT = GameObject.Instantiate (_CentralDisplayPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		CTXT.transform.Find ("Text").GetComponent<Text> ().text = "Player " + "<color=yellow>" + txt +"</color>"+" is now the Fame";
+
+	}
+
+
 
 
 

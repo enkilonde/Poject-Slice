@@ -185,8 +185,8 @@ public class ignoreCollision : MonoBehaviour
 		{
 			if (IsMouse)
 			{
-				print("SWAP MOUSE");
 				_Killed.GetComponent<NetworkCharacter>().GetComponent<PhotonView>().RPC("SwapMouse", PhotonTargets.All, false);
+
 				_Killer.GetComponent<NetworkCharacter>().GetComponent<PhotonView>().RPC("SwapMouse", PhotonTargets.All, true);
 
 			}

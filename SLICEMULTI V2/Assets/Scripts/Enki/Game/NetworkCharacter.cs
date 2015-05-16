@@ -6,12 +6,11 @@ using UnityEngine.UI;
 
 public class NetworkCharacter : MonoBehaviour {
 
-
-	public enum PlayerColor{Yellow, Red, Green, Purple, None};
-
-	public PlayerColor _PlayerColor = PlayerColor.None;
+	
 
 	private PhotonView _PhotonView;
+
+	public LocalManager.Equipe _Equipe;
 
 	public string _PlayerName;
 
@@ -26,14 +25,10 @@ public class NetworkCharacter : MonoBehaviour {
 	public bool _IsMouse = false;
 	
 	private bool _NoColor = true;
-	
-	public bool _Yellow = false;
-	public bool _Red = false;
-	public bool _Purple = false;
-	public bool _Green = false;
+
 
 	public Color _plcolor = new Color();
-
+	public string _plcolorHEXA;
 
 	public int _MouseScoreMultiplier = 1;
 	public int _BaseScorePerSecond = 1;
@@ -44,12 +39,20 @@ public class NetworkCharacter : MonoBehaviour {
 
 
 	public GameObject _AuraContainer;
+	public GameObject _CentralDisplayPrefab;
 
+	public Color _Red;
+	public Color _Blue;
+	public Color _Green;
+	public Color _Yellow;
+
+
+	private ParticleSystem _FLAME;
 
 	public List<GameObject> _Players = new List<GameObject>();
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
 		_PhotonView = GetComponent<PhotonView> ();
 
@@ -57,27 +60,34 @@ public class NetworkCharacter : MonoBehaviour {
 		_AuraContainer = transform.Find ("Aura").gameObject;
 		_AuraContainer.SetActive (false);
 
+		_FLAME = transform.Find ("THE FLAME").GetComponent<ParticleSystem> ();
+
+
 		if (_PhotonView.isMine == true) 
 		{
+
+			SetColor();
+
 			GetComponent<CharacterControls> ().enabled = true;
 			GetComponent<MouseLook> ().enabled = true;
 			GetComponent<CreatePortal> ().enabled = true;
 			transform.Find ("Camera").GetComponent<Camera> ().enabled = true;
+			transform.Find ("Camera").GetComponent<AudioListener> ().enabled = true;
 			transform.Find ("CameraUI").GetComponent<Camera> ().enabled = true;
+			transform.Find("Camera").Find ("Camera Flame").GetComponent<Camera> ().enabled = true;
 			transform.Find ("Camera").GetComponent<MouseLook> ().enabled = true;
 			transform.Find ("FootCollider").gameObject.SetActive (true);
 			transform.Find ("Scripts").gameObject.SetActive (true);
 			transform.Find("PlayerName").gameObject.SetActive(false);
 			//transform.Find("CharacterMesh").gameObject.SetActive(false);
 			transform.Find("Character Mesh").gameObject.SetActive(false);
-
+			_FLAME.Stop();
 
 
 
 
 		} else 
 		{
-	
 
 
 		}
@@ -139,14 +149,7 @@ public class NetworkCharacter : MonoBehaviour {
 		if (_PhotonView.isMine) 
 		{
 
-			switch(_PlayerColor)
-			{
-			case NetworkCharacter.PlayerColor.Green : _PhotonView.RPC("ColorGreen", PhotonTargets.AllBuffered); break;
-			case NetworkCharacter.PlayerColor.Yellow : _PhotonView.RPC("ColorYellow", PhotonTargets.AllBuffered); break;
-			case NetworkCharacter.PlayerColor.Red : _PhotonView.RPC("ColorRed", PhotonTargets.AllBuffered); break;
-			case NetworkCharacter.PlayerColor.Purple : _PhotonView.RPC("ColorPurple", PhotonTargets.AllBuffered); break;
-			default : break;
-			}
+
 			
 		}
 
@@ -224,7 +227,38 @@ public class NetworkCharacter : MonoBehaviour {
 
 		_IsMouse = mouse;
 
+		if (mouse) 
+		{
+			if (!_PhotonView.isMine)
+			{
+				_FLAME.Play();
+			}
 
+
+
+		} else 
+		{
+			_FLAME.Stop();
+
+		}
+
+
+		if (mouse && _PhotonView.isMine) 
+		{
+			string _msg = "Player " + "<color="+ _plcolorHEXA +">" + _PlayerName +"</color>"+" is now the Fame";
+			_PhotonView.RPC("SendSwapMouseMessage", PhotonTargets.All, _msg);
+			SendCentralMessageMouse("You are now the flame \n RUN!");
+		}
+
+	}
+
+	[RPC]
+	public void SendSwapMouseMessage(string txt)
+	{
+		if (!_PhotonView.isMine) 
+		{
+			SendCentralMessageMouse (txt);
+		}
 	}
 
 
@@ -267,117 +301,78 @@ public class NetworkCharacter : MonoBehaviour {
 
 	void UpdatePlayerList2()
 	{
-		_Green = false;
-		_Yellow = false;
-		_Red = false;
-		_Purple = false;
-
 
 		_Players = new List<GameObject> ();
 		GameObject[] _g = GameObject.FindGameObjectsWithTag ("Player");
 		foreach(GameObject _gg in _g)
 		{
 			_Players.Add(_gg);
-			if(_gg.GetComponent<PhotonView>().isMine)
-			{
-				switch(_PlayerColor)
-				{
-				case NetworkCharacter.PlayerColor.Green : _PhotonView.RPC("ColorGreen", PhotonTargets.AllBuffered); break;
-				case NetworkCharacter.PlayerColor.Yellow : _PhotonView.RPC("ColorYellow", PhotonTargets.AllBuffered); break;
-				case NetworkCharacter.PlayerColor.Red : _PhotonView.RPC("ColorRed", PhotonTargets.AllBuffered); break;
-				case NetworkCharacter.PlayerColor.Purple : _PhotonView.RPC("ColorPurple", PhotonTargets.AllBuffered); break;
-				default : break;
-				}
-			}
 
 
-			switch(_gg.GetComponent<NetworkCharacter>()._PlayerColor)
-			{
-			case NetworkCharacter.PlayerColor.Green : _Green = true; break;
-			case NetworkCharacter.PlayerColor.Yellow : _Yellow = true; break;
-			case NetworkCharacter.PlayerColor.Red : _Red = true; break;
-			case NetworkCharacter.PlayerColor.Purple : _Purple = true; break;
-				default : break;
-			}
-			
 		}
 
-		if (_PlayerColor == PlayerColor.None && GetComponent<PhotonView>().isMine) 
-		{
-			SetColor();
-		}
-
-		if (_NoColor && _PlayerColor != PlayerColor.None) 
-		{
-			_NoColor = false;
-			if (_PlayerColor == PlayerColor.Green)
-			{
-				_plcolor.r = 191.0f / 255.0f;
-				_plcolor.g = 83.0f / 255.0f;
-				_plcolor.b = 73.0f / 255.0f;
-			}
-			else if (_PlayerColor == PlayerColor.Purple)
-			{
-				_plcolor.r = 191.0f / 255.0f;
-				_plcolor.g = 122.0f / 255.0f;
-				_plcolor.b = 200.0f / 255.0f;
-				
-			}else if(_PlayerColor == PlayerColor.Red)
-			{
-				_plcolor.r = 255.0f / 255.0f;
-				_plcolor.g = 0.0f / 255.0f;
-				_plcolor.b = 0.0f / 255.0f;
-				
-			}
-			else if(_PlayerColor == PlayerColor.Yellow)
-			{
-				_plcolor.r = 149.0f / 255.0f;
-				_plcolor.g = 147.0f / 255.0f;
-				_plcolor.b = 93.0f / 255.0f;
-			}
-			_plcolor.a = 1;
-			transform.Find("Character Mesh").Find("MainBody").GetComponent<Renderer>().material.color = _plcolor;
-			
-			
-			
-			_AuraContainer.transform.Find ("AuraUp").GetComponent<ParticleSystem> ().startColor = _plcolor;
-			_AuraContainer.transform.Find ("AuraGround").GetComponent<ParticleSystem> ().startColor = _plcolor;
-		}
+	
+	
+	
 
 	}
 
 
 	public void SetColor ()
 	{
-
-		//UpdatePlayerList2 ();
-
-		if (!_Green) 
+		//_Equipe = _GManager.SetPlayerColor ();
+		
+		
+		
+		if (PunTeams.PlayersPerTeam [PunTeams.Team.blue].Count <= (PhotonNetwork.playerList.Length-1)/4) 
 		{
-			_PlayerColor = PlayerColor.Green;
-		}
-
-		if (!_Yellow) 
-		{
-			_PlayerColor = PlayerColor.Yellow;
-		}
-
-		if (!_Red) 
-		{
-			_PlayerColor = PlayerColor.Red;
-		}
-
-		if (!_Purple) 
-		{
-			_PlayerColor = PlayerColor.Purple;
+			PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
+			_Equipe = LocalManager.Equipe.Blue;
 		}
 		
+		if (PunTeams.PlayersPerTeam [PunTeams.Team.green].Count <= (PhotonNetwork.playerList.Length-1)/4) 
+		{
+			PhotonNetwork.player.SetTeam(PunTeams.Team.green);
+			_Equipe = LocalManager.Equipe.Green;
+		}
+		
+		if (PunTeams.PlayersPerTeam [PunTeams.Team.red].Count <= (PhotonNetwork.playerList.Length-1)/4) 
+		{
+			PhotonNetwork.player.SetTeam(PunTeams.Team.red);
+			_Equipe = LocalManager.Equipe.Red;
+		}
+		
+		if (PunTeams.PlayersPerTeam [PunTeams.Team.yellow].Count <= (PhotonNetwork.playerList.Length-1)/4) 
+		{
+			PhotonNetwork.player.SetTeam(PunTeams.Team.yellow);
+			_Equipe = LocalManager.Equipe.Yellow;
+		}
+		
+		
+		
 
+		
+		switch (_Equipe) 
+		{
+		case LocalManager.Equipe.Blue : _plcolor = _Blue; break;
+		case LocalManager.Equipe.Green : _plcolor = _Green; break;
+		case LocalManager.Equipe.Red : _plcolor = _Red; break;
+		case LocalManager.Equipe.Yellow : _plcolor = _Yellow; break;
+			
+		}
 
-		GetComponent<PhotonView>().RPC("SynchroniseColor", PhotonTargets.AllBuffered, _PlayerColor.ToString());
+		transform.Find("Character Mesh").Find("MainBody").GetComponent<Renderer>().material.color = _plcolor;
+		
+		_AuraContainer.transform.Find ("AuraUp").GetComponent<ParticleSystem> ().startColor = _plcolor;
+		_AuraContainer.transform.Find ("AuraGround").GetComponent<ParticleSystem> ().startColor = _plcolor;
+		
+		transform.Find("Canvas").Find("UISideGauche").GetComponent<Image>().color = _plcolor;
+		transform.Find("Canvas").Find("UISideDroite").GetComponent<Image>().color = _plcolor;
+		
+		_plcolorHEXA = RGBToHexa(_plcolor);
+		
 
-
-
+		
 	}
 
 	void OnPhotonPlayerConnected(PhotonPlayer player)
@@ -391,7 +386,7 @@ public class NetworkCharacter : MonoBehaviour {
 	[RPC]
 	public void SynchroniseColor(string _col)
 	{
-		_PlayerColor = (PlayerColor) System.Enum.Parse (typeof(PlayerColor), _col);
+
 
 	}
 
@@ -412,30 +407,34 @@ public class NetworkCharacter : MonoBehaviour {
 
 
 
-	[RPC]
-	public void ColorYellow()
+
+	public void SendCentralMessageMouse(string txt)
 	{
-		_PlayerColor = PlayerColor.Yellow;
+		
+		GameObject CTXT = GameObject.Instantiate (_CentralDisplayPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		CTXT.transform.Find ("Text").GetComponent<Text> ().text = txt;
+		
 	}
 
 
-	[RPC]
-	public void ColorGreen()
+	private string RGBToHexa(Color _Color)
 	{
-		_PlayerColor = PlayerColor.Green;
+
+		float _r = _Color.r * 255;
+		float _g = _Color.g * 255;
+		float _b = _Color.b * 255;
+
+		int _R = (int)_r;
+		int _G = (int)_g;
+		int _B = (int)_b;
+
+
+		string _hexcode = "#" + _R.ToString ("X") + _G.ToString("X") + _B.ToString("X") + "FF";
+		return _hexcode;
+
 	}
 
-	[RPC]
-	public void ColorRed()
-	{
-		_PlayerColor = PlayerColor.Red;
-	}
 
-	[RPC]
-	public void ColorPurple()
-	{
-		_PlayerColor = PlayerColor.Purple;
-	}
 
 
 

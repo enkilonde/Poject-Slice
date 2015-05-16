@@ -141,6 +141,12 @@ public class OnlineManager : MonoBehaviour
 
 		if (_Players.Count == 1) 
 		{
+
+			if (!_Players[0].GetComponent<NetworkCharacter>()._IsMouse)
+			{
+				_Players[0].GetComponent<NetworkCharacter>().SendCentralMessageMouse("You are now the flame \n RUN!");
+			}
+
 			_Players[0].GetComponent<NetworkCharacter>()._IsMouse = true;
 			_Players[0].GetComponent<PhotonView>().RPC("ActivateAura", PhotonTargets.All, true);
 

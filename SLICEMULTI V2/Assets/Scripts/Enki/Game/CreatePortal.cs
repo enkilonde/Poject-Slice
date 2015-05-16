@@ -97,12 +97,12 @@ public class CreatePortal : MonoBehaviour {
 		_portal.GetComponent<PhotonView> ().RPC ("SetID", PhotonTargets.All, _PLayerID);
 		_portal.GetComponent<PortalIdentifier> ()._OwnerIndex = _OManager._Players.IndexOf (this.gameObject);
 
-		switch (_NCharacter._PlayerColor) 
+		switch (_NCharacter._Equipe) 
 		{
-		case NetworkCharacter.PlayerColor.Green : _portal.GetComponent<PortalLayer> ()._FireColor = _GreenGradient; break;
-		case NetworkCharacter.PlayerColor.Yellow : _portal.GetComponent<PortalLayer> ()._FireColor = _YellowGradient; break;
-		case NetworkCharacter.PlayerColor.Red : _portal.GetComponent<PortalLayer> ()._FireColor = _RedGradient; break;
-		case NetworkCharacter.PlayerColor.Purple : _portal.GetComponent<PortalLayer> ()._FireColor = _PurpleGradient; break;
+		case LocalManager.Equipe.Green : _portal.GetComponent<PortalLayer> ()._FireColor = _GreenGradient; break;
+		case LocalManager.Equipe.Yellow : _portal.GetComponent<PortalLayer> ()._FireColor = _YellowGradient; break;
+		case LocalManager.Equipe.Red : _portal.GetComponent<PortalLayer> ()._FireColor = _RedGradient; break;
+		case LocalManager.Equipe.Blue : _portal.GetComponent<PortalLayer> ()._FireColor = _PurpleGradient; break;
 		default : break;
 
 

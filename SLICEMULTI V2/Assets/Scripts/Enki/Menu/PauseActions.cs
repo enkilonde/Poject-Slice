@@ -227,4 +227,14 @@ public class PauseActions : MonoBehaviour
 	}
 
 
+	public void PlayTaiko2()
+	{
+
+		transform.Find ("Taiko2").GetComponent<SoundBehaviour> ().PlaySound ();
+
+
+	}
+
+
+
 }

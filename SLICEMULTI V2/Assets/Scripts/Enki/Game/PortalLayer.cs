@@ -16,12 +16,27 @@ public class PortalLayer : MonoBehaviour {
 	public float _FOVLimite = 60;
 
 	private PortalLayerManager _manager;
+	private LocalManager _LManager;
 
 	public Color _FireColor;
+	private PhotonView _PhotonView;
+
+	public SoundBehaviour _DebutFeu;
+	public SoundBehaviour _CrepitementApparition;
+	public SoundBehaviour _CrepietementLoop;
+
+
+
+
 
 	// Use this for initialization
 	void Start () {
 
+
+
+		_PhotonView = GetComponent<PhotonView> ();
+
+		_LManager = GameObject.Find ("Manager").GetComponent<LocalManager>();
 
 		_manager = GameObject.Find ("Scripts").GetComponent<PortalLayerManager> ();
 		
@@ -59,10 +74,17 @@ public class PortalLayer : MonoBehaviour {
 
 		if (GetComponent<PhotonView> ().isMine) 
 		{
-			GetComponent<PhotonView> ().RPC ("SetFireColor", PhotonTargets.All);
+			GetComponent<PhotonView> ().RPC ("SetFireColor", PhotonTargets.All, _FireColor.r, _FireColor.g, _FireColor.b);
 		}
 
 		//transform.Find ("FireParticle").GetComponent<ParticleSystem> ().startColor = _FireColor;
+
+
+		//_PhotonView.RPC ("PlayDebutFeu", PhotonTargets.All);
+		//_PhotonView.RPC ("PlayCrepitementApparition", PhotonTargets.All);
+		_PhotonView.RPC ("PlayCrepitementLoop", PhotonTargets.All);
+
+
 	}
 	
 	void Update () 
@@ -109,14 +131,37 @@ public class PortalLayer : MonoBehaviour {
 
 
 	[RPC]
-	public void SetFireColor()
+	public void SetFireColor(float _r, float _g, float _b)
 	{
 
-		transform.Find ("FireParticle").GetComponent<ParticleSystem> ().startColor = _FireColor;
-		transform.Find ("FireParticle 1").GetComponent<ParticleSystem> ().startColor = _FireColor;
+		Color _fc = new Color (_r, _g, _b, 1);
+
+		transform.Find ("FireParticle").GetComponent<ParticleSystem> ().startColor = _fc;
+		transform.Find ("FireParticle 1").GetComponent<ParticleSystem> ().startColor = _fc;
 		//transform.Find ("FireParticle").GetComponent<ParticleSystem> ().Play ();
 	}
 
 
 
+	[RPC]
+	public void PlayDebutFeu()
+	{
+		_DebutFeu.PlaySound ();
+
+	}
+
+	[RPC]
+	public void PlayCrepitementApparition()
+	{
+		_CrepitementApparition.PlaySound ();
+		
+	}
+
+
+	[RPC]
+	public void PlayCrepitementLoop()
+	{
+		_CrepietementLoop.PlaySound ();
+		
+	}
 }
